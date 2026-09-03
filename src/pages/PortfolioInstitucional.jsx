@@ -4,7 +4,7 @@ import { MetaTags } from '../components/MetaTags';
 import { useRef } from 'react';
 import './PortfolioInstitucional.css';
 import { Button } from '../components/ui/button';
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Image, Camera, Wrench } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { CookieConsentBanner } from '../components/CookieConsentBanner';
@@ -28,6 +28,28 @@ import logoAmbev from '../assets/logos/logo-ambev.png';
 import logoCopercana from '../assets/logos/logo-copercana.png';
 import logoVale from '../assets/logos/logo-vale.png';
 import logoADM from '../assets/logos/logo-adm.png';
+
+function ImagePlaceholder({ title, description, aspect = '16 / 9', className = '' }) {
+  const iconMap = {
+    Image,
+    Camera,
+    Wrench,
+  };
+
+  const SelectedIcon = iconMap[title] || Image;
+
+  return (
+    <div className={`image-placeholder ${className}`.trim()} style={{ aspectRatio: aspect }}>
+      <div className="image-placeholder__content">
+        <div className="image-placeholder__icon-wrap">
+          <SelectedIcon className="image-placeholder__icon" aria-hidden="true" />
+        </div>
+        <span className="image-placeholder__tag">Imagem em preparação</span>
+        <p className="image-placeholder__description">{description}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function PortfolioInstitucional() {
   const formRef = useRef(null);
@@ -113,16 +135,19 @@ export default function PortfolioInstitucional() {
       location: 'São Joaquim da Barra - SP',
       description: 'Implantação completa de centro de triagem com fundações, estrutura metálica, cobertura, piso e instalações.',
       services: ['Fundações', 'Estrutura Metálica', 'Cobertura', 'Piso de Concreto', 'Instalações'],
+      placeholder: 'Inserir foto externa do galpão ou da execução da obra.',
     },
     {
       title: 'Manutenção, Caldeiraria e Montagem Industrial',
       description: 'Recuperação, fabricação e instalação de componentes e estruturas para operação industrial contínua.',
       services: ['Caldeiraria', 'Manutenção', 'Fabricação', 'Instalação'],
+      placeholder: 'Inserir foto de serviço real em unidade industrial.',
     },
     {
       title: 'Estruturas Metálicas e Instalações',
       description: 'Galpões, coberturas, plataformas e ampliações para diferentes necessidades operacionais.',
       services: ['Galpões', 'Coberturas', 'Plataformas', 'Ampliações'],
+      placeholder: 'Inserir foto de galpão, cobertura, passarela ou plataforma executada.',
     },
   ];
 
@@ -216,6 +241,43 @@ export default function PortfolioInstitucional() {
           </div>
         </section>
 
+        {/* ===== 3.1. ATUAÇÃO EM CAMPO ===== */}
+        <section id="atuacao-em-campo" className="py-20 px-4 bg-white print-page-break">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="space-y-4 text-center md:text-left">
+              <h2 className="text-4xl font-bold text-[var(--h2d-blue-dark)]">Atuação em Campo</h2>
+              <p className="text-lg text-gray-700">Soluções executadas conforme a necessidade técnica e operacional de cada cliente.</p>
+              <div className="h-1 w-16 bg-[var(--h2d-yellow)] mx-auto md:mx-0"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
+                <ImagePlaceholder title="Image" description="Foto de fabricação, soldagem, tanque, tubulação ou equipamento metálico." className="m-0" />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Caldeiraria e Fabricação</h3>
+                  <p className="text-gray-700 leading-relaxed">Estruturas metálicas, equipamentos, reservatórios e peças sob medida para a operação industrial.</p>
+                </div>
+              </article>
+
+              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
+                <ImagePlaceholder title="Wrench" description="Foto de equipe em montagem, manutenção programada ou intervenção industrial." className="m-0" />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Montagem e Manutenção Industrial</h3>
+                  <p className="text-gray-700 leading-relaxed">Intervenções programadas, corretivas, desmonte, reparos e suporte técnico em operação.</p>
+                </div>
+              </article>
+
+              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden md:col-span-2 xl:col-span-1">
+                <ImagePlaceholder title="Camera" description="Foto de galpão, cobertura, plataforma, mezanino ou estrutura metálica instalada." className="m-0" />
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Estruturas Metálicas</h3>
+                  <p className="text-gray-700 leading-relaxed">Galpões, coberturas, ampliações, mezaninos e passarelas executados com foco em produtividade.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* ===== 4. CALDEIRARIA E FABRICAÇÃO ===== */}
         <section id="caldeiraria" className="py-20 px-4 bg-white print-page-break">
           <div className="max-w-6xl mx-auto space-y-8">
@@ -226,8 +288,7 @@ export default function PortfolioInstitucional() {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              Executamos serviços de caldeiraria leve, média e pesada para demandas industriais, agroindustriais e mecânicas. Nossa atuação abrange fabricação, reforma, substituição e adequação de componentes, conjuntos e equipamentos metálicos, sempre observando as especificações técnicas e
-              necessidades operacionais de cada cliente.
+              Executamos serviços de caldeiraria leve, média e pesada para demandas industriais, agroindustriais e mecânicas. Nossa atuação abrange fabricação, reforma, substituição e adequação de componentes, conjuntos e equipamentos metálicos, sempre observando as especificações técnicas e necessidades operacionais de cada cliente.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -303,8 +364,7 @@ export default function PortfolioInstitucional() {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              A engenharia é parte central da atuação da H2D. Desenvolvemos estudos, projetos, memoriais, quantitativos e soluções executivas que dão ao cliente clareza para decidir e segurança para executar. Nossa abordagem considera viabilidade técnica, condições de campo, interfaces, segurança,
-              construtibilidade, custo e prazo.
+              A engenharia é parte central da atuação da H2D. Desenvolvemos estudos, projetos, memoriais, quantitativos e soluções executivas que dão ao cliente clareza para decidir e segurança para executar. Nossa abordagem considera viabilidade técnica, condições de campo, interfaces, segurança, construtibilidade, custo e prazo.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -353,51 +413,27 @@ export default function PortfolioInstitucional() {
             </div>
 
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-[var(--h2d-yellow)]">
-                <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-2">{cases[0].title}</h3>
-                <p className="text-sm text-[var(--h2d-blue-medium)] font-semibold mb-4">{cases[0].location}</p>
-                <p className="text-gray-700 leading-relaxed mb-6">{cases[0].description}</p>
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold text-gray-600">Serviços envolvidos:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {cases[0].services.map((service, idx) => (
-                      <span key={idx} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
-                        {service}
-                      </span>
-                    ))}
+              {cases.map((caseItem, idx) => (
+                <article key={idx} className="bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
+                  {/* Substituir por imagem importada de src/assets/portfolio/ quando disponível. */}
+                  <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-2">{caseItem.title}</h3>
+                    {caseItem.location && <p className="text-sm text-[var(--h2d-blue-medium)] font-semibold mb-4">{caseItem.location}</p>}
+                    <p className="text-gray-700 leading-relaxed mb-6">{caseItem.description}</p>
+                    <div className="space-y-2">
+                      <p className="text-sm font-semibold text-gray-600">Serviços envolvidos:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {caseItem.services.map((service, serviceIdx) => (
+                          <span key={serviceIdx} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
+                            {service}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-[var(--h2d-yellow)]">
-                <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-4">{cases[1].title}</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">{cases[1].description}</p>
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold text-gray-600">Serviços envolvidos:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {cases[1].services.map((service, idx) => (
-                      <span key={idx} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-[var(--h2d-yellow)] lg:col-span-2 lg:max-w-xl">
-                <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-4">{cases[2].title}</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">{cases[2].description}</p>
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold text-gray-600">Serviços envolvidos:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {cases[2].services.map((service, idx) => (
-                      <span key={idx} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
