@@ -8,12 +8,10 @@ import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Image, Camera, Wrench } f
 import { ContactForm } from '../components/ContactForm';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { CookieConsentBanner } from '../components/CookieConsentBanner';
-import { ClientLogos } from '../components/ClientLogos';
 
 // Imagens
 import logoH2D from '../assets/logoH2D.png';
 import heroBackground from '../assets/galpao-moderno-0.jpg';
-import industrialImage from '../assets/steel-frame-structure.JPG';
 
 // Logos de clientes
 import logoVenturoso from '../assets/logos/logo-vv.png';
@@ -51,6 +49,17 @@ function ImagePlaceholder({ title, description, aspect = '16 / 9', className = '
   );
 }
 
+function ClientLogoCard({ src, alt, name }) {
+  return (
+    <div className="client-logo-card">
+      <div className="client-logo-card__logo-wrap">
+        <img src={src} alt={alt} className="client-logo-card__logo" />
+      </div>
+      <p className="client-logo-card__name">{name}</p>
+    </div>
+  );
+}
+
 export default function PortfolioInstitucional() {
   const formRef = useRef(null);
 
@@ -60,18 +69,18 @@ export default function PortfolioInstitucional() {
   };
 
   const clientLogos = [
-    { src: logoVenturoso, alt: 'Venturo Valentini' },
-    { src: logoSiderugicaSJM, alt: 'Siderurgica São Joaquim' },
-    { src: logoVittia, alt: 'Vittia' },
-    { src: logoVLI, alt: 'VLI' },
-    { src: logoAltaMogiana, alt: 'Alta Mogiana' },
-    { src: logoSodrugestvo, alt: 'Sodrugestvo' },
-    { src: logoBunge, alt: 'Bunge' },
-    { src: logoCargill, alt: 'Cargill' },
-    { src: logoAmbev, alt: 'Ambev' },
-    { src: logoCopercana, alt: 'Copercana' },
-    { src: logoVale, alt: 'Vale' },
-    { src: logoADM, alt: 'ADM' },
+    { src: logoVenturoso, alt: 'Venturo Valentini', name: 'Venturo Valentini' },
+    { src: logoSiderugicaSJM, alt: 'Siderurgica São Joaquim', name: 'Siderurgica São Joaquim' },
+    { src: logoVittia, alt: 'Vittia', name: 'Vittia' },
+    { src: logoVLI, alt: 'VLI', name: 'VLI' },
+    { src: logoAltaMogiana, alt: 'Alta Mogiana', name: 'Alta Mogiana' },
+    { src: logoSodrugestvo, alt: 'Sodrugestvo', name: 'Sodrugestvo' },
+    { src: logoBunge, alt: 'Bunge', name: 'Bunge' },
+    { src: logoCargill, alt: 'Cargill', name: 'Cargill' },
+    { src: logoAmbev, alt: 'Ambev', name: 'Ambev' },
+    { src: logoCopercana, alt: 'Copercana', name: 'Copercana' },
+    { src: logoVale, alt: 'Vale', name: 'Vale' },
+    { src: logoADM, alt: 'ADM', name: 'ADM' },
   ];
 
   const solutions = [
@@ -149,9 +158,32 @@ export default function PortfolioInstitucional() {
       services: ['Galpões', 'Coberturas', 'Plataformas', 'Ampliações'],
       placeholder: 'Inserir foto de galpão, cobertura, passarela ou plataforma executada.',
     },
+    {
+      title: 'Fabricação de Equipamentos e Dispositivos',
+      description: 'Fabricação de conjuntos metálicos, peças, dispositivos e gabaritos para aplicações industriais.',
+      services: ['Fabricação', 'Peças Sob Medida', 'Dispositivos', 'Gabaritos'],
+      placeholder: 'Inserir foto de equipamento, conjunto fabricado, dispositivo ou detalhe de fabricação.',
+    },
+    {
+      title: 'Obras Civis e Infraestrutura',
+      description: 'Execução de fundações, pisos, contenções, alvenarias e complementos para instalações operacionais.',
+      services: ['Fundações', 'Pisos', 'Contenções', 'Infraestrutura'],
+      placeholder: 'Inserir foto de fundação, piso industrial, contenção ou obra de infraestrutura.',
+    },
+    {
+      title: 'Projetos de Engenharia e Drenagem',
+      description: 'Estudos, levantamentos, projetos executivos e soluções para infraestrutura e adequações técnicas.',
+      services: ['Projetos', 'Levantamentos', 'Drenagem', 'Infraestrutura'],
+      placeholder: 'Inserir foto de levantamento em campo, projeto técnico, drenagem ou implantação de infraestrutura.',
+    },
   ];
 
   const segments = ['Indústrias e Agroindústrias', 'Usinas e Unidades de Processamento', 'Agronegócio', 'Logística e Armazenagem', 'Comércio e Empresas de Serviços', 'Obras Públicas e Infraestrutura', 'Propriedades Rurais', 'Empreendimentos Privados'];
+
+  const officialPhone = '(16) 99797-1044';
+  const whatsappUrl = 'https://wa.me/5516997971044';
+  const officialEmail = 'contato@h2dengenharia.com.br';
+  const emailUrl = 'mailto:contato@h2dengenharia.com.br';
 
   return (
     <>
@@ -187,14 +219,14 @@ export default function PortfolioInstitucional() {
             </div>
 
             <div className="mt-16 flex flex-col md:flex-row gap-8 text-sm md:text-base">
-              <div className="flex items-center gap-3">
-                <MapPin className="text-[var(--h2d-yellow)] flex-shrink-0" size={20} />
-                <span>São Joaquim da Barra - SP</span>
-              </div>
-              <div className="flex items-center gap-3">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-gray-200 transition-colors">
                 <Phone className="text-[var(--h2d-yellow)] flex-shrink-0" size={20} />
-                <span>Entre em contato para mais informações</span>
-              </div>
+                <span>{officialPhone}</span>
+              </a>
+              <a href={emailUrl} className="flex items-center gap-3 text-white hover:text-gray-200 transition-colors">
+                <Mail className="text-[var(--h2d-yellow)] flex-shrink-0" size={20} />
+                <span>{officialEmail}</span>
+              </a>
             </div>
           </div>
         </section>
@@ -251,7 +283,7 @@ export default function PortfolioInstitucional() {
             </div>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
+              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
                 <ImagePlaceholder title="Image" description="Foto de fabricação, soldagem, tanque, tubulação ou equipamento metálico." className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Caldeiraria e Fabricação</h3>
@@ -259,7 +291,7 @@ export default function PortfolioInstitucional() {
                 </div>
               </article>
 
-              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
+              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
                 <ImagePlaceholder title="Wrench" description="Foto de equipe em montagem, manutenção programada ou intervenção industrial." className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Montagem e Manutenção Industrial</h3>
@@ -267,7 +299,7 @@ export default function PortfolioInstitucional() {
                 </div>
               </article>
 
-              <article className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden md:col-span-2 xl:col-span-1">
+              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden md:col-span-2 xl:col-span-1">
                 <ImagePlaceholder title="Camera" description="Foto de galpão, cobertura, plataforma, mezanino ou estrutura metálica instalada." className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Estruturas Metálicas</h3>
@@ -288,7 +320,8 @@ export default function PortfolioInstitucional() {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              Executamos serviços de caldeiraria leve, média e pesada para demandas industriais, agroindustriais e mecânicas. Nossa atuação abrange fabricação, reforma, substituição e adequação de componentes, conjuntos e equipamentos metálicos, sempre observando as especificações técnicas e necessidades operacionais de cada cliente.
+              Executamos serviços de caldeiraria leve, média e pesada para demandas industriais, agroindustriais e mecânicas. Nossa atuação abrange fabricação, reforma, substituição e adequação de componentes, conjuntos e equipamentos metálicos, sempre observando as especificações técnicas e
+              necessidades operacionais de cada cliente.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -364,7 +397,8 @@ export default function PortfolioInstitucional() {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              A engenharia é parte central da atuação da H2D. Desenvolvemos estudos, projetos, memoriais, quantitativos e soluções executivas que dão ao cliente clareza para decidir e segurança para executar. Nossa abordagem considera viabilidade técnica, condições de campo, interfaces, segurança, construtibilidade, custo e prazo.
+              A engenharia é parte central da atuação da H2D. Desenvolvemos estudos, projetos, memoriais, quantitativos e soluções executivas que dão ao cliente clareza para decidir e segurança para executar. Nossa abordagem considera viabilidade técnica, condições de campo, interfaces, segurança,
+              construtibilidade, custo e prazo.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -404,17 +438,17 @@ export default function PortfolioInstitucional() {
           </div>
         </section>
 
-        {/* ===== 9. CASES REALIZADOS ===== */}
+        {/* ===== 9. SOLUÇÕES E EXPERIÊNCIAS TÉCNICAS ===== */}
         <section id="cases" className="py-20 px-4 bg-gray-50 print-page-break">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-[var(--h2d-blue-dark)]">Cases Realizados</h2>
+              <h2 className="text-4xl font-bold text-[var(--h2d-blue-dark)]">Soluções e Experiências Técnicas</h2>
               <div className="h-1 w-16 bg-[var(--h2d-yellow)]"></div>
             </div>
 
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {cases.map((caseItem, idx) => (
-                <article key={idx} className="bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
+                <article key={idx} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
                   {/* Substituir por imagem importada de src/assets/portfolio/ quando disponível. */}
                   <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
                   <div className="p-8">
@@ -468,7 +502,11 @@ export default function PortfolioInstitucional() {
               <div className="h-1 w-16 bg-[var(--h2d-yellow)]"></div>
             </div>
 
-            <ClientLogos logos={clientLogos} />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+              {clientLogos.map((logo, idx) => (
+                <ClientLogoCard key={idx} src={logo.src} alt={logo.alt} name={logo.name} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -491,20 +529,28 @@ export default function PortfolioInstitucional() {
 
               <div className="space-y-4 py-8 border-y-2 border-gray-700">
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin size={20} className="text-[var(--h2d-yellow)]" />
-                  <span>São Joaquim da Barra - SP</span>
+                  <Phone size={20} className="text-[var(--h2d-yellow)]" />
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition-colors">
+                    {officialPhone}
+                  </a>
                 </div>
-                <p className="text-gray-300">Visite nosso site e entre em contato conosco</p>
+                <div className="flex items-center justify-center gap-3">
+                  <Mail size={20} className="text-[var(--h2d-yellow)]" />
+                  <a href={emailUrl} className="text-white hover:text-gray-200 transition-colors">
+                    {officialEmail}
+                  </a>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 no-print">
-                <a href="https://wa.me/5516997161155" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--h2d-yellow)] text-[var(--h2d-blue-dark)] hover:bg-yellow-400 font-bold px-8 py-3 rounded-lg transition-colors">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--h2d-yellow)] text-[var(--h2d-blue-dark)] hover:bg-yellow-400 font-bold px-8 py-3 rounded-lg transition-colors">
                   WhatsApp
                   <Phone size={20} />
                 </a>
-                <Button onClick={handleScrollToForm} className="bg-white text-[var(--h2d-blue-dark)] hover:bg-gray-100 font-bold px-8 py-3 text-base">
-                  Solicitar Contato
-                </Button>
+                <a href={emailUrl} className="inline-flex items-center justify-center gap-2 bg-white text-[var(--h2d-blue-dark)] hover:bg-gray-100 font-bold px-8 py-3 rounded-lg transition-colors">
+                  E-mail
+                  <Mail size={20} />
+                </a>
               </div>
             </div>
           </div>
@@ -525,8 +571,12 @@ export default function PortfolioInstitucional() {
       </main>
 
       {/* Componentes secundários */}
-      <WhatsAppButton />
-      <CookieConsentBanner />
+      <div className="portfolio-print-hidden">
+        <WhatsAppButton />
+      </div>
+      <div className="portfolio-print-hidden">
+        <CookieConsentBanner />
+      </div>
     </>
   );
 }

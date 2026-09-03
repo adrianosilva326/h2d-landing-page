@@ -2,6 +2,8 @@
 
 .portfolio-page {
   background-color: #ffffff;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 .portfolio-page .portfolio-hero {
@@ -147,6 +149,56 @@
   color: #334155;
 }
 
+.portfolio-page .portfolio-activity-card,
+.portfolio-page .portfolio-case-card,
+.portfolio-page .client-logo-card,
+.portfolio-page .image-placeholder {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.portfolio-page .client-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 180px;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.portfolio-page .client-logo-card__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 88px;
+  padding: 0.75rem;
+}
+
+.portfolio-page .client-logo-card__logo {
+  width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+  filter: none;
+}
+
+.portfolio-page .client-logo-card__name {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+}
+
+.portfolio-page .portfolio-print-hidden {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .portfolio-page .portfolio-hero {
     min-height: 80vh;
@@ -206,14 +258,18 @@
   .portfolio-page {
     background: #ffffff !important;
     color: #000000 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
+  .portfolio-page #formulario,
   .portfolio-page .no-print,
   .portfolio-page button,
   .portfolio-page nav,
   .portfolio-page footer,
   .portfolio-page .close-button,
   .portfolio-page .hide-print,
+  .portfolio-page .portfolio-print-hidden,
   .portfolio-page svg.animate-bob {
     display: none !important;
   }
@@ -224,15 +280,6 @@
 
   .portfolio-page .print-page-break:first-of-type {
     page-break-before: avoid;
-  }
-
-  .portfolio-page section,
-  .portfolio-page div,
-  .portfolio-page p,
-  .portfolio-page li,
-  .portfolio-page img,
-  .portfolio-page table {
-    page-break-inside: avoid;
   }
 
   .portfolio-page h1,
@@ -288,6 +335,6 @@
 
   @page {
     size: A4;
-    margin: 1.5cm;
+    margin: 12mm;
   }
 }
