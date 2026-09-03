@@ -18,6 +18,7 @@ import ConstrucaoEstruturaMetalica from './pages/ConstrucaoEstruturaMetalica';
 // 1. IMPORTE A NOVA PÁGINA DO AGRO AQUI
 import GalpoesAgro from './pages/GalpoesAgro';
 import GalpoesIndustriais from './pages/GalpoesIndustriais';
+import PortfolioInstitucional from './pages/PortfolioInstitucional';
 
 
 // Cria o roteador com as duas rotas
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       // 3. ADICIONE A ROTA DO AGRO AQUI
       { path: '/galpoes-agronegocio', element: <GalpoesAgro /> },
       { path: '/galpoes-industriais', element: <GalpoesIndustriais /> },
+      { path: '/portfolio', element: <PortfolioInstitucional /> },
       // GalpoesIndustriais.jsx
       // VOCÊ PODE ADICIONAR QUANTAS QUISER:
       // { path: '/galpoes-agronegocio', element: <PaginaGalpoesAgro /> },
