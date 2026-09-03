@@ -80,7 +80,6 @@
 }
 
 .portfolio-page a {
-  color: var(--h2d-blue-dark);
   text-decoration: none;
   transition: color 0.3s ease;
 }
