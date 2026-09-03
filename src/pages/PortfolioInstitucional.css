@@ -1,9 +1,11 @@
 /* src/pages/PortfolioInstitucional.css */
 
-@import '../App.css';
+.portfolio-page {
+  background-color: #ffffff;
+  color: #1f2937;
+}
 
-/* ===== LAYOUT BASE ===== */
-.portfolio-hero {
+.portfolio-page .portfolio-hero {
   position: relative;
   min-height: 70vh;
   display: flex;
@@ -11,471 +13,221 @@
   justify-content: center;
 }
 
-.portfolio-hero h1 {
+.portfolio-page .portfolio-hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-page .portfolio-hero h1 {
   font-size: clamp(2.5rem, 8vw, 3.5rem);
   line-height: 1.2;
   margin-bottom: 1.5rem;
+  color: #ffffff;
 }
 
-.portfolio-hero h2 {
+.portfolio-page .portfolio-hero h2 {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   line-height: 1.3;
+  color: #ffffff;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-
-/* Tablet (768px - 1024px) */
-@media (min-width: 768px) {
-  .portfolio-hero {
-    min-height: 80vh;
-  }
-
-  .portfolio-hero h1 {
-    font-size: 3rem;
-  }
-
-  .portfolio-hero h2 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Desktop (1024px+) */
-@media (min-width: 1024px) {
-  .portfolio-hero {
-    min-height: 90vh;
-  }
-
-  .portfolio-hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .portfolio-hero h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Mobile (< 768px) */
-@media (max-width: 767px) {
-  .portfolio-hero {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .portfolio-hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .portfolio-hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .portfolio-hero .flex-col {
-    gap: 1rem;
-  }
-}
-
-/* ===== SECTION SPACING ===== */
-section {
+.portfolio-page section {
   position: relative;
 }
 
-section > div {
+.portfolio-page section > div {
   word-break: break-word;
 }
 
-/* ===== CARDS E COMPONENTES ===== */
-.portfolio-card {
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-4px);
-}
-
-/* ===== TIPOGRAFIA ===== */
-h2 {
+.portfolio-page h2 {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 1rem;
+  color: #003366;
 }
 
-h3 {
+.portfolio-page h3 {
   font-weight: 600;
   line-height: 1.4;
+  color: #003366;
 }
 
-p {
+.portfolio-page p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #374151;
 }
 
-/* ===== ACESSIBILIDADE ===== */
+.portfolio-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* Focus visível para navegação por teclado */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
+.portfolio-page button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.portfolio-page button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.portfolio-page button:focus-visible,
+.portfolio-page a:focus-visible,
+.portfolio-page input:focus-visible,
+.portfolio-page textarea:focus-visible {
   outline: 2px solid var(--h2d-blue-dark);
   outline-offset: 2px;
 }
 
-/* ===== PRINT STYLES (IMPRESSÃO A4) ===== */
+.portfolio-page a {
+  color: var(--h2d-blue-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.portfolio-page a:hover {
+  text-decoration: underline;
+}
+
+.portfolio-page a:visited {
+  color: var(--h2d-blue-medium);
+}
+
+@media (min-width: 768px) {
+  .portfolio-page .portfolio-hero {
+    min-height: 80vh;
+  }
+
+  .portfolio-page .portfolio-hero h1 {
+    font-size: 3rem;
+  }
+
+  .portfolio-page .portfolio-hero h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-page .portfolio-hero {
+    min-height: 90vh;
+  }
+
+  .portfolio-page .portfolio-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .portfolio-page .portfolio-hero h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-page .portfolio-hero {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .portfolio-page .portfolio-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .portfolio-page .portfolio-hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-page h3 {
+    font-size: 1.25rem;
+  }
+}
+
 @media print {
-  /* Reset de estilos */
-  * {
-    background: transparent !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    page-break-inside: avoid;
+  .portfolio-page {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 
-  html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
-    color: black;
-    font-size: 12pt;
-    line-height: 1.5;
-    font-family: Arial, sans-serif;
-  }
-
-  body {
-    padding: 20mm;
-  }
-
-  /* Ocultar elementos não necessários para impressão */
-  .no-print,
-  button,
-  .close-button,
-  nav,
-  footer,
-  .hide-print,
-  svg.animate-bob {
+  .portfolio-page .no-print,
+  .portfolio-page button,
+  .portfolio-page nav,
+  .portfolio-page footer,
+  .portfolio-page .close-button,
+  .portfolio-page .hide-print,
+  .portfolio-page svg.animate-bob {
     display: none !important;
   }
 
-  /* Links com URL visível */
-  a[href]:after {
-    content: "";
+  .portfolio-page .print-page-break {
+    page-break-before: always;
   }
 
-  /* Títulos e estrutura */
-  h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
+  .portfolio-page .print-page-break:first-of-type {
+    page-break-before: avoid;
+  }
+
+  .portfolio-page section,
+  .portfolio-page div,
+  .portfolio-page p,
+  .portfolio-page li,
+  .portfolio-page img,
+  .portfolio-page table {
     page-break-inside: avoid;
+  }
+
+  .portfolio-page h1,
+  .portfolio-page h2,
+  .portfolio-page h3,
+  .portfolio-page h4,
+  .portfolio-page h5,
+  .portfolio-page h6 {
+    page-break-after: avoid;
     margin-top: 0.5cm;
     margin-bottom: 0.3cm;
-    font-weight: bold;
+    color: #000000 !important;
   }
 
-  h1 {
+  .portfolio-page h1 {
     font-size: 24pt;
     text-align: center;
     margin-bottom: 1cm;
   }
 
-  h2 {
+  .portfolio-page h2 {
     font-size: 18pt;
     border-bottom: 2px solid #003366;
     padding-bottom: 0.3cm;
     margin-top: 1cm;
   }
 
-  h3 {
+  .portfolio-page h3 {
     font-size: 14pt;
-    margin-top: 0.5cm;
   }
 
-  /* Parágrafos */
-  p {
-    page-break-inside: avoid;
-    margin-bottom: 0.5cm;
+  .portfolio-page p {
+    color: #000000 !important;
     text-align: justify;
-  }
-
-  /* Listas */
-  ul, ol {
-    page-break-inside: avoid;
     margin-bottom: 0.5cm;
   }
 
-  li {
-    margin-bottom: 0.3cm;
-    page-break-inside: avoid;
+  .portfolio-page a[href]::after {
+    content: '';
   }
 
-  /* Tabelas */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    page-break-inside: avoid;
-    margin-bottom: 1cm;
-  }
-
-  th, td {
-    border: 1px solid #333;
-    padding: 0.3cm;
-    text-align: left;
-  }
-
-  th {
-    background-color: #f0f0f0;
-    font-weight: bold;
-  }
-
-  /* Imagens */
-  img {
+  .portfolio-page img {
     max-width: 100% !important;
     max-height: 15cm !important;
-    page-break-inside: avoid;
     margin-bottom: 0.5cm;
   }
 
-  /* Quebra de página antes de seções principais */
-  .print-page-break {
-    page-break-before: always;
-  }
-
-  .print-page-break:first-of-type {
-    page-break-before: avoid;
-  }
-
-  /* Cores para impressão em preto e branco */
-  #hero,
-  section {
-    background: white !important;
-    color: black !important;
-  }
-
-  .bg-gray-50 {
-    background: white !important;
-    border-top: 1px solid #999;
-    border-bottom: 1px solid #999;
-  }
-
-  .text-[var(--h2d-blue-dark)],
-  .text-[var(--h2d-blue-medium)] {
-    color: black !important;
-  }
-
-  .bg-[var(--h2d-blue-dark)] {
-    background: #333 !important;
-    color: white !important;
-  }
-
-  .border-l-4, .border-t-4 {
-    border-color: #333 !important;
-  }
-
-  .bg-[var(--h2d-yellow)],
-  .text-[var(--h2d-yellow)] {
-    color: black !important;
-  }
-
-  /* Cards */
-  .shadow-md, .shadow-lg {
-    border: 1px solid #999 !important;
-  }
-
-  /* Espaçamento para impressão */
-  section {
-    margin-bottom: 0.5cm;
-  }
-
-  /* Margin e padding otimizados para papel */
-  .max-w-7xl, .max-w-6xl, .max-w-4xl {
-    margin: 0;
-  }
-
-  div[class*="px-"],
-  div[class*="py-"] {
-    padding: 0.5cm !important;
-  }
-
-  /* Certificar que o conteúdo está visível */
-  section > div {
-    visibility: visible !important;
-  }
-
-  /* Remover gradientes */
-  [style*="linear-gradient"] {
-    background-image: none !important;
-    background: white !important;
-  }
-
-  /* Posicionamento fixo não funciona bem em impressão */
-  position: fixed,
-  position: sticky {
-    position: static !important;
-  }
-
-  /* Linha divisória em preto para impressão */
-  .h-1 {
-    background-color: #333 !important;
-  }
-
-  /* Rodapé da página */
   @page {
     size: A4;
-    margin: 2cm;
+    margin: 1.5cm;
   }
-
-  @page :first {
-    margin-top: 0;
-  }
-
-  @page :last {
-    margin-bottom: 0;
-  }
-
-  /* Número de página */
-  @bottom-center {
-    content: "Página " counter(page) " de " counter(pages);
-    font-size: 10pt;
-    color: #999;
-  }
-}
-
-/* ===== MEDIA QUERIES AVANÇADAS ===== */
-
-/* Telas muito pequenas (< 480px) */
-@media (max-width: 479px) {
-  body {
-    font-size: 14px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
-
-  section {
-    padding: 2rem 1rem !important;
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .space-y-8 {
-    gap: 1rem !important;
-  }
-}
-
-/* Tablets (480px - 767px) */
-@media (min-width: 480px) and (max-width: 767px) {
-  body {
-    font-size: 15px;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.35rem;
-  }
-
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* Large tablets e desktops pequenos (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .lg\:col-span-2 {
-    grid-column: auto !important;
-  }
-}
-
-/* ===== ANIMAÇÕES ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Animação suave para scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== MODO ESCURO (OPCIONAL) ===== */
-@media (prefers-color-scheme: dark) {
-  section {
-    color-scheme: dark;
-  }
-
-  section p {
-    color: #e0e0e0;
-  }
-}
-
-/* ===== FLEXIBILIDADE DE IMAGENS ===== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ===== BOTÕES COM FOCO ===== */
-button {
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ===== LINKS ===== */
-a {
-  color: var(--h2d-blue-dark);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--h2d-blue-medium);
-}
-
-/* ===== CLASSE UTILITÁRIA PARA ESPAÇAMENTO ===== */
-.space-between-sections {
-  margin: 2rem 0;
-}
-
-@media (max-width: 767px) {
-  .space-between-sections {
-    margin: 1rem 0;
-  }
-}
-
-/* ===== COMPATIBILIDADE COM NAVEGADORES ===== */
-* {
-  box-sizing: border-box;
-}
-
-button, input, optgroup, select, textarea {
-  font: inherit;
-  color: inherit;
 }
