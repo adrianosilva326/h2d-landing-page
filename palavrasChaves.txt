@@ -1,0 +1,89 @@
+GRUPO – AGRO (usar “frase” e “exata”)
+ 
+Frase (“…”)
+*** “galpão para armazenar grãos”
+*** “estrutura metálica para fazenda”
+*** “galpão agrícola”
+*** “galpão para fazenda”
+*** “galpão para maquinário agrícola”
+*** "galpão pré moldado 10x25 preço"
+*** "galpão agrícola preço m2"
+*** “barracão agrícola”
+*** “orçamento galpão agrícola”
+*** “galpão agrícola em sp”
+*** “galpão para grãos”
+
+Exata ([…])
+
+*** [galpão agronegócio]
+*** [galpao de fazenda]
+*** [galpão agrícola preço]
+*** [galpão para fazenda]
+*** [galpão agrícola]
+*** [barracão agrícola]
+*** [galpão para grãos]
+*** [orçamento galpão agrícola]
+
+Ampla (poucos, bem controlados)
+
+*** galpão agrícola
+barracão agrícola
+
+Dica: combine com públicos personalizados de agro (tratores, colheitadeiras, cooperativas) para qualificar a ampla.
+
+GRUPO – INDUSTRIAL (usar “frase” e “exata”)
+
+Frase (“…”)
+“galpão industrial”
+“galpão metálico industrial”
+“projeto galpão industrial”
+“construção de galpão industrial”
+“galpão logístico”
+“estrutura metálica industrial”
+“galpão para ponte rolante”
+“galpão industrial preço m2”
+“orçamento galpão industrial”
+“galpão industrial em sp”
+
+Exata ([…])
+
+[galpão industrial]
+[galpão logístico]
+[projeto galpão industrial]
+[construção galpão industrial]
+[galpão para ponte rolante]
+[preço m2 galpão industrial]
+
+Ampla (poucos)
+
+galpão industrial
+
+
+
+Geral:
+arrendamento
+inflável
+brinquedo
+concurso
+
+Materiais que você não vende (se for o caso):
+pré moldado
+pré-moldado
+alvenaria
+madeira
+
+Outros:
+silagem
+silo
+galpão de lona
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-991605100">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-991605100');
+</script>

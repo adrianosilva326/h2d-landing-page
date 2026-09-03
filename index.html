@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <!-- Carregue o gtag uma única vez usando o GA4 -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYNBEOCFF2"></script> -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-991605100"></script>
+  <script>
+    // Define o estado padrão do consentimento.
+    // O Google Analytics e o Ads não irão coletar dados
+    // até que isso seja atualizado para 'granted'.
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+
+    gtag('js', new Date());
+
+    // Desative o page_view automático do GA4 para não duplicar com o seu AnalyticsTracker
+    gtag('config', 'G-PYNBEOCFF2', { send_page_view: false });
+
+    // Ative também o Ads na mesma instância do gtag
+    gtag('config', 'AW-991605100');
+
+    // gtag('config', 'AW-991605100'); // Linha do Google Ads
+    // gtag('config', 'G-PYNBEOCFF2'); // Linha do Google Analytics 
+  </script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
