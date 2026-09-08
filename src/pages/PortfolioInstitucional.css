@@ -88,10 +88,6 @@
   text-decoration: underline;
 }
 
-.portfolio-page a:visited {
-  color: var(--h2d-blue-medium);
-}
-
 .portfolio-page .image-placeholder {
   position: relative;
   display: flex;
@@ -268,7 +264,7 @@
   .portfolio-page footer,
   .portfolio-page .close-button,
   .portfolio-page .hide-print,
-  .portfolio-page .portfolio-print-hidden,
+  .portfolio-print-hidden,
   .portfolio-page svg.animate-bob {
     display: none !important;
   }
