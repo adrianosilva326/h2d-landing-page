@@ -99,6 +99,16 @@
   overflow: hidden;
 }
 
+.portfolio-page .portfolio-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
 .portfolio-page .image-placeholder__content {
   display: flex;
   flex-direction: column;

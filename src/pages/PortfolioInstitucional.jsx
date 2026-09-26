@@ -11,7 +11,14 @@ import { CookieConsentBanner } from '../components/CookieConsentBanner';
 
 // Imagens
 import logoH2D from '../assets/logoH2D.png';
-import heroBackground from '../assets/galpao-moderno-0.jpg';
+import heroBackground from '../assets/portfolio/hero-obra-ilustrativa.png';
+import atuacaoCaldeiraria from '../assets/portfolio/atuacao-caldeiraria.png';
+import atuacaoMontagem from '../assets/portfolio/atuacao-montagem.jpg';
+import atuacaoEstruturasImg from '../assets/portfolio/atuacao-estruturas.png';
+import caseManutencao from '../assets/portfolio/case-manutencao-industrial.jpg';
+import caseEstruturasInstalacoes from '../assets/portfolio/case-estruturas-instalacoes.png';
+import caseFabricacao from '../assets/portfolio/case-fabricacao-equipamentos.png';
+import caseObrasC from '../assets/portfolio/case-obras-civis.png';
 
 // Logos de clientes
 import logoVenturoso from '../assets/logos/logo-vv.png';
@@ -46,6 +53,18 @@ function ImagePlaceholder({ title, description, aspect = '16 / 9', className = '
         <p className="image-placeholder__description">{description}</p>
       </div>
     </div>
+  );
+}
+
+function PortfolioImage({ src, alt, className = '', objectPosition = 'center', loading = 'lazy' }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`portfolio-image ${className}`.trim()}
+      style={{ objectPosition }}
+      loading={loading}
+    />
   );
 }
 
@@ -150,25 +169,25 @@ export default function PortfolioInstitucional() {
       title: 'Manutenção, Caldeiraria e Montagem Industrial',
       description: 'Recuperação, fabricação e instalação de componentes e estruturas para operação industrial contínua.',
       services: ['Caldeiraria', 'Manutenção', 'Fabricação', 'Instalação'],
-      placeholder: 'Inserir foto de serviço real em unidade industrial.',
+      image: caseManutencao,
     },
     {
       title: 'Estruturas Metálicas e Instalações',
       description: 'Galpões, coberturas, plataformas e ampliações para diferentes necessidades operacionais.',
       services: ['Galpões', 'Coberturas', 'Plataformas', 'Ampliações'],
-      placeholder: 'Inserir foto de galpão, cobertura, passarela ou plataforma executada.',
+      image: caseEstruturasInstalacoes,
     },
     {
       title: 'Fabricação de Equipamentos e Dispositivos',
       description: 'Fabricação de conjuntos metálicos, peças, dispositivos e gabaritos para aplicações industriais.',
       services: ['Fabricação', 'Peças Sob Medida', 'Dispositivos', 'Gabaritos'],
-      placeholder: 'Inserir foto de equipamento, conjunto fabricado, dispositivo ou detalhe de fabricação.',
+      image: caseFabricacao,
     },
     {
       title: 'Obras Civis e Infraestrutura',
       description: 'Execução de fundações, pisos, contenções, alvenarias e complementos para instalações operacionais.',
       services: ['Fundações', 'Pisos', 'Contenções', 'Infraestrutura'],
-      placeholder: 'Inserir foto de fundação, piso industrial, contenção ou obra de infraestrutura.',
+      image: caseObrasC,
     },
     {
       title: 'Projetos de Engenharia e Drenagem',
@@ -229,6 +248,11 @@ export default function PortfolioInstitucional() {
               </a>
             </div>
           </div>
+
+          {/* Legenda ilustrativa no canto inferior direito */}
+          <div className="absolute bottom-4 right-6 text-xs text-gray-300 print:hidden">
+            Imagem ilustrativa
+          </div>
         </section>
 
         {/* ===== 2. QUEM SOMOS ===== */}
@@ -284,7 +308,7 @@ export default function PortfolioInstitucional() {
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
               <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
-                <ImagePlaceholder title="Image" description="Foto de fabricação, soldagem, tanque, tubulação ou equipamento metálico." className="m-0" />
+                <PortfolioImage src={atuacaoCaldeiraria} alt="Equipamentos e componentes de caldeiraria e fabricação metálica em processo" className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Caldeiraria e Fabricação</h3>
                   <p className="text-gray-700 leading-relaxed">Estruturas metálicas, equipamentos, reservatórios e peças sob medida para a operação industrial.</p>
@@ -292,7 +316,7 @@ export default function PortfolioInstitucional() {
               </article>
 
               <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
-                <ImagePlaceholder title="Wrench" description="Foto de equipe em montagem, manutenção programada ou intervenção industrial." className="m-0" />
+                <PortfolioImage src={atuacaoMontagem} alt="Equipe realizando montagem e manutenção de equipamentos industriais" className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Montagem e Manutenção Industrial</h3>
                   <p className="text-gray-700 leading-relaxed">Intervenções programadas, corretivas, desmonte, reparos e suporte técnico em operação.</p>
@@ -300,7 +324,7 @@ export default function PortfolioInstitucional() {
               </article>
 
               <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden md:col-span-2 xl:col-span-1">
-                <ImagePlaceholder title="Camera" description="Foto de galpão, cobertura, plataforma, mezanino ou estrutura metálica instalada." className="m-0" />
+                <PortfolioImage src={atuacaoEstruturasImg} alt="Estrutura metálica de galpão industrial em construção" className="m-0" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Estruturas Metálicas</h3>
                   <p className="text-gray-700 leading-relaxed">Galpões, coberturas, ampliações, mezaninos e passarelas executados com foco em produtividade.</p>
@@ -449,8 +473,11 @@ export default function PortfolioInstitucional() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {cases.map((caseItem, idx) => (
                 <article key={idx} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
-                  {/* Substituir por imagem importada de src/assets/portfolio/ quando disponível. */}
-                  <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
+                  {caseItem.image ? (
+                    <PortfolioImage src={caseItem.image} alt={`Projeto de ${caseItem.title}`} className="rounded-none" />
+                  ) : (
+                    <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
+                  )}
                   <div className="p-8">
                     <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-2">{caseItem.title}</h3>
                     {caseItem.location && <p className="text-sm text-[var(--h2d-blue-medium)] font-semibold mb-4">{caseItem.location}</p>}
