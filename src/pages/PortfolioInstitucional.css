@@ -14,9 +14,28 @@
   justify-content: center;
 }
 
-.portfolio-page .portfolio-hero > div {
+.portfolio-page .portfolio-hero-content {
   position: relative;
   z-index: 1;
+}
+
+.portfolio-page .portfolio-hero-disclaimer {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 9999px;
+  color: #ffffff;
+  background: rgba(0, 27, 54, 0.8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
 }
 
 .portfolio-page .portfolio-hero h1 {
@@ -164,6 +183,24 @@
 
 .portfolio-page .portfolio-case-media {
   position: relative;
+}
+
+.portfolio-page .portfolio-image-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: 9999px;
+  color: #ffffff;
+  background: rgba(0, 27, 54, 0.88);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .portfolio-page .portfolio-gallery-trigger {
@@ -416,7 +453,12 @@
 @media (max-width: 767px) {
   .portfolio-page .portfolio-hero {
     padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-bottom: 8rem;
+  }
+
+  .portfolio-page .portfolio-hero-disclaimer {
+    right: 0.75rem;
+    bottom: 0.75rem;
   }
 
   .portfolio-page .portfolio-hero h1 {
@@ -474,6 +516,7 @@
   .portfolio-page .close-button,
   .portfolio-page .portfolio-gallery-modal,
   .portfolio-page .portfolio-gallery-trigger,
+  .portfolio-page .portfolio-hero-disclaimer,
   .portfolio-page .hide-print,
   .portfolio-print-hidden,
   .portfolio-page svg.animate-bob {

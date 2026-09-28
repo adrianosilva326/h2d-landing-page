@@ -15,7 +15,6 @@ import logoH2D from '../assets/logoH2D.png';
 import heroBackground from '../assets/portfolio/hero-obra-ilustrativa.webp';
 import atuacaoCaldeiraria from '../assets/portfolio/atuacao-caldeiraria.webp';
 import atuacaoTransportadores from '../assets/portfolio/atuacao-transportadores.webp';
-import atuacaoEquipamentosAgro from '../assets/portfolio/atuacao-equipamentos-agroindustriais.webp';
 import atuacaoDutos from '../assets/portfolio/atuacao-dutos-exaustao.webp';
 import caseManutencao from '../assets/portfolio/case-manutencao-industrial.webp';
 import caseEstruturasInstalacoes from '../assets/portfolio/case-estruturas-instalacoes.webp';
@@ -66,6 +65,34 @@ import mezaninosImg04 from '../assets/portfolio/gallery/mezaninos/mezanino-04.we
 // Galeria - Dutos
 import dutosImg02 from '../assets/portfolio/gallery/dutos/dutos-02.webp';
 import dutosImg03 from '../assets/portfolio/gallery/dutos/dutos-03.webp';
+
+// Galeria - Centro de Triagem
+import centroTriagemImg01 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-01.webp';
+import centroTriagemImg02 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-02.webp';
+import centroTriagemImg03 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-03.webp';
+import centroTriagemImg04 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-04.webp';
+import centroTriagemImg05 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-05.webp';
+import centroTriagemImg06 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-06.webp';
+import centroTriagemImg07 from '../assets/portfolio/gallery/centro-triagem/centro-triagem-07.webp';
+
+// Imagem ilustrativa - Drenagem
+import drenagemImg01 from '../assets/portfolio/gallery/drenagem/drenagem-01.webp';
+
+// Galeria - Curvas de Gomos
+import curvaGomosImg01 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-01.webp';
+import curvaGomosImg02 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-02.webp';
+import curvaGomosImg03 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-03.webp';
+
+// Galeria - Tanques
+import tanqueImg01 from '../assets/portfolio/gallery/tanques/tanque-01.webp';
+import tanqueImg02 from '../assets/portfolio/gallery/tanques/tanque-02.webp';
+import tanqueImg03 from '../assets/portfolio/gallery/tanques/tanque-03.webp';
+
+// Galeria - Misturadores e Moinhos
+import misturadorMoinhoImg01 from '../assets/portfolio/gallery/misturadores-moinhos/misturador-moinho-01.webp';
+import misturadorMoinhoImg02 from '../assets/portfolio/gallery/misturadores-moinhos/misturador-moinho-02.webp';
+import misturadorMoinhoImg03 from '../assets/portfolio/gallery/misturadores-moinhos/misturador-moinho-03.webp';
+import misturadorMoinhoImg04 from '../assets/portfolio/gallery/misturadores-moinhos/misturador-moinho-04.webp';
 
 // Logos de clientes
 import logoVenturoso from '../assets/logos/logo-vv.png';
@@ -219,10 +246,10 @@ export default function PortfolioInstitucional() {
       alt: 'Guindaste realizando içamento de componente na área de evaporação de uma usina sucroenergética.',
     },
     {
-      title: 'Estruturas Metálicas',
-      description: 'Galpões, coberturas, ampliações, mezaninos, plataformas, passarelas e acessos industriais.',
-      image: caseEstruturasInstalacoes,
-      alt: 'Mezanino metálico industrial com plataformas e guarda-corpos ao redor de equipamentos.',
+      title: 'Estruturas, Galpões e Coberturas',
+      description: 'Montagem de estruturas, tesouras, coberturas, ampliações, mezaninos, plataformas e acessos industriais.',
+      image: centroTriagemImg01,
+      alt: 'Tesouras metálicas montadas sobre pilares durante a execução da cobertura de um galpão.',
     },
     {
       title: 'Transportadores e Movimentação de Materiais',
@@ -231,16 +258,34 @@ export default function PortfolioInstitucional() {
       alt: 'Transportador de correia móvel com estrutura metálica e correia com taliscas.',
     },
     {
-      title: 'Equipamentos Agroindustriais',
-      description: 'Equipamentos de pré-limpeza, mistura, moagem e apoio ao processamento de grãos e produtos.',
-      image: atuacaoEquipamentosAgro,
-      alt: 'Conjunto agroindustrial compacto para alimentação, moagem, mistura e ensaque.',
+      title: 'Equipamentos de Pré-Limpeza',
+      description: 'Equipamentos para alimentação, peneiramento e preparação inicial de produtos agroindustriais.',
+      image: caseEquipamentosAgro,
+      alt: 'Equipamento agroindustrial de pré-limpeza com peneira e proteções amarelas.',
     },
     {
-      title: 'Dutos, Exaustão e Componentes de Processo',
-      description: 'Exaustores, dutos, curvas, bicas, transições e componentes metálicos integrados à operação.',
+      title: 'Exaustores e Sistemas de Exaustão',
+      description: 'Exaustores, acionamentos e componentes fabricados para sistemas de ventilação e exaustão industrial.',
       image: atuacaoDutos,
       alt: 'Exaustor centrífugo azul fabricado em oficina com motor elétrico acoplado.',
+    },
+    {
+      title: 'Curvas de Gomos e Dutos Industriais',
+      description: 'Curvas segmentadas e componentes metálicos fabricados sob medida para sistemas industriais.',
+      image: curvaGomosImg02,
+      alt: 'Conjunto de curvas de gomos metálicas fabricadas em diferentes diâmetros e ângulos.',
+    },
+    {
+      title: 'Tanques e Reservatórios',
+      description: 'Fabricação, montagem e integração de tanques metálicos conforme a aplicação e as condições operacionais.',
+      image: tanqueImg01,
+      alt: 'Tanque metálico vertical integrado a tubulações e equipamentos em área industrial.',
+    },
+    {
+      title: 'Misturadores, Moinhos e Linhas Compactas',
+      description: 'Equipamentos integrados para alimentação, moagem, mistura e preparação de produtos agroindustriais.',
+      image: agroImg06,
+      alt: 'Conjunto agroindustrial compacto com alimentador, moinho e misturador vertical.',
     },
   ];
 
@@ -248,9 +293,19 @@ export default function PortfolioInstitucional() {
     {
       title: 'Centro de Triagem de Resíduos Sólidos',
       location: 'São Joaquim da Barra - SP',
-      description: 'Implantação completa de centro de triagem com fundações, estrutura metálica, cobertura, piso e instalações.',
+      description: 'Registros das etapas de execução do centro de triagem, incluindo fabricação e montagem das tesouras metálicas, instalação da estrutura da cobertura e colocação das telhas.',
       services: ['Fundações', 'Estrutura Metálica', 'Cobertura', 'Piso de Concreto', 'Instalações'],
-      placeholder: 'Inserir foto externa do galpão ou da execução da obra.',
+      image: centroTriagemImg01,
+      alt: 'Tesouras metálicas montadas sobre pilares durante a execução da cobertura do centro de triagem.',
+      gallery: [
+        { src: centroTriagemImg01, alt: 'Tesouras metálicas montadas sobre pilares durante a execução da cobertura do centro de triagem.', caption: 'Montagem das tesouras metálicas sobre a estrutura do centro de triagem.' },
+        { src: centroTriagemImg02, alt: 'Tesoura metálica sendo fabricada e soldada no canteiro de obras.', caption: 'Fabricação das tesouras metálicas antes do içamento.' },
+        { src: centroTriagemImg03, alt: 'Pilares do centro de triagem preparados para receber a estrutura da cobertura.', caption: 'Estrutura vertical preparada para a montagem das tesouras metálicas.' },
+        { src: centroTriagemImg04, alt: 'Tesouras metálicas sendo instaladas sobre os pilares do centro de triagem.', caption: 'Instalação das tesouras metálicas da cobertura.' },
+        { src: centroTriagemImg05, alt: 'Estrutura metálica vista por baixo durante a instalação inicial das telhas.', caption: 'Estrutura da cobertura e início da colocação das telhas.' },
+        { src: centroTriagemImg06, alt: 'Trabalhadores instalando telhas metálicas na cobertura do centro de triagem.', caption: 'Colocação das telhas metálicas sobre a estrutura.' },
+        { src: centroTriagemImg07, alt: 'Vista inferior da cobertura metálica do centro de triagem em execução.', caption: 'Detalhes da estrutura e do fechamento da cobertura.' },
+      ],
     },
     {
       title: 'Manutenção, Caldeiraria e Montagem Industrial',
@@ -306,9 +361,11 @@ export default function PortfolioInstitucional() {
     },
     {
       title: 'Projetos de Engenharia e Drenagem',
-      description: 'Estudos, levantamentos, projetos executivos e soluções para infraestrutura e adequações técnicas.',
+      description: 'Estudos, levantamentos e projetos executivos para drenagem e infraestrutura. A imagem apresentada é ilustrativa e não representa uma obra executada pela H2D.',
       services: ['Projetos', 'Levantamentos', 'Drenagem', 'Infraestrutura'],
-      placeholder: 'Inserir foto de levantamento em campo, projeto técnico, drenagem ou implantação de infraestrutura.',
+      image: drenagemImg01,
+      alt: 'Representação ilustrativa de sistema de drenagem superficial e tubulação em área industrial.',
+      illustrative: true,
     },
     {
       title: 'Transportadores e Movimentação de Materiais',
@@ -325,8 +382,8 @@ export default function PortfolioInstitucional() {
     },
     {
       title: 'Equipamentos Agroindustriais e Pré-Limpeza',
-      description: 'Fabricação, montagem e adequação de equipamentos destinados à preparação e ao processamento de produtos agroindustriais.',
-      services: ['Pré-Limpeza', 'Mistura', 'Processamento', 'Montagem'],
+      description: 'Fabricação, montagem e adequação de equipamentos para alimentação, peneiramento e pré-limpeza de produtos agroindustriais.',
+      services: ['Pré-Limpeza', 'Peneiramento', 'Alimentação', 'Montagem'],
       image: caseEquipamentosAgro,
       alt: 'Equipamento agroindustrial de pré-limpeza com peneira e proteções amarelas.',
       gallery: [
@@ -335,7 +392,6 @@ export default function PortfolioInstitucional() {
         { src: agroImg03, alt: 'Vista frontal da pré-limpeza mostrando peneira, acionamento e proteções.', caption: 'Conjunto de peneiramento e acionamento da pré-limpeza.' },
         { src: agroImg04, alt: 'Vista lateral e superior do equipamento de pré-limpeza com moegas de alimentação.', caption: 'Superfície peneirante e pontos de alimentação do equipamento.' },
         { src: agroImg05, alt: 'Conjunto de alimentação com moega instalado sobre estrutura metálica azul.', caption: 'Sistema de alimentação associado ao conjunto de pré-limpeza.' },
-        { src: agroImg06, alt: 'Conjunto agroindustrial compacto com alimentador, moinho e misturador vertical.', caption: 'Linha compacta para alimentação, moagem, mistura vertical e ensaque.' },
       ],
     },
     {
@@ -352,15 +408,53 @@ export default function PortfolioInstitucional() {
       ],
     },
     {
-      title: 'Dutos, Exaustão e Componentes de Processo',
-      description: 'Fabricação e instalação de exaustores, dutos, curvas, bicas e transições para sistemas industriais.',
-      services: ['Exaustão', 'Dutos', 'Curvas', 'Bicas e Transições'],
+      title: 'Exaustores e Sistemas de Exaustão',
+      description: 'Fabricação e montagem de exaustores, acionamentos e componentes para sistemas de ventilação e exaustão industrial.',
+      services: ['Exaustores', 'Sistemas de Exaustão', 'Acionamentos', 'Fabricação'],
       image: caseDutos,
       alt: 'Exaustor centrífugo azul visto pela entrada de ar e pelo rotor.',
       gallery: [
         { src: caseDutos, alt: 'Exaustor centrífugo azul visto pela entrada de ar e pelo rotor.', caption: 'Exaustor centrífugo fabricado pela H2D.' },
         { src: dutosImg02, alt: 'Vista lateral do exaustor centrífugo com carcaça, motor e saída de descarga.', caption: 'Outra perspectiva do exaustor e de seu acionamento elétrico.' },
-        { src: dutosImg03, alt: 'Curva de gomos em chapa metálica durante a etapa de montagem e ponteamento.', caption: 'Curva de gomos fabricada para sistemas de dutos industriais.' },
+      ],
+    },
+    {
+      title: 'Curvas de Gomos e Componentes para Dutos',
+      description: 'Fabricação sob medida de curvas segmentadas e componentes metálicos para condução de ar, gases e materiais em sistemas industriais.',
+      services: ['Curvas de Gomos', 'Dutos Industriais', 'Caldeiraria', 'Fabricação Sob Medida'],
+      image: dutosImg03,
+      alt: 'Curva de gomos em chapa metálica durante a etapa de montagem e ponteamento.',
+      gallery: [
+        { src: dutosImg03, alt: 'Curva de gomos em chapa metálica durante a etapa de montagem e ponteamento.', caption: 'Curva segmentada durante a etapa de montagem.' },
+        { src: curvaGomosImg01, alt: 'Conjunto vertical de curvas de gomos metálicas em diferentes ângulos.', caption: 'Curvas segmentadas fabricadas em diferentes geometrias.' },
+        { src: curvaGomosImg02, alt: 'Conjunto de curvas de gomos metálicas em diferentes diâmetros e ângulos.', caption: 'Componentes curvos preparados para aplicações em sistemas industriais.' },
+        { src: curvaGomosImg03, alt: 'Curvas de gomos metálicas finalizadas e organizadas em área de fabricação.', caption: 'Curvas metálicas finalizadas em diferentes configurações.' },
+      ],
+    },
+    {
+      title: 'Tanques e Reservatórios Industriais',
+      description: 'Fabricação, montagem e instalação de tanques e reservatórios metálicos desenvolvidos conforme a aplicação e as condições operacionais.',
+      services: ['Tanques Metálicos', 'Reservatórios', 'Caldeiraria', 'Montagem e Instalação'],
+      image: tanqueImg01,
+      alt: 'Tanque metálico vertical integrado a tubulações e equipamentos em área industrial.',
+      gallery: [
+        { src: tanqueImg01, alt: 'Tanque metálico vertical integrado a tubulações e equipamentos em área industrial.', caption: 'Tanque vertical instalado e integrado à área de processo.' },
+        { src: tanqueImg02, alt: 'Vista ampla de área industrial com tanque, tubulações e conjunto de bombeamento.', caption: 'Integração do tanque com tubulações e equipamentos auxiliares.' },
+        { src: tanqueImg03, alt: 'Vista aproximada de tanque metálico, suportes, tubulações e conjunto de bombeamento.', caption: 'Detalhes da instalação e das conexões associadas ao tanque.' },
+      ],
+    },
+    {
+      title: 'Misturadores, Moinhos e Linhas Compactas',
+      description: 'Fabricação e integração de equipamentos para alimentação, moagem, mistura e preparação de produtos agroindustriais.',
+      services: ['Misturadores', 'Moinhos de Martelo', 'Alimentação', 'Linhas Compactas'],
+      image: agroImg06,
+      alt: 'Conjunto agroindustrial compacto com alimentador, moinho e misturador vertical.',
+      gallery: [
+        { src: agroImg06, alt: 'Conjunto agroindustrial compacto com alimentador, moinho e misturador vertical.', caption: 'Linha compacta com equipamentos integrados para preparação de produtos.' },
+        { src: misturadorMoinhoImg01, alt: 'Misturador vertical conectado a equipamento de alimentação em área de montagem.', caption: 'Conjunto de alimentação e mistura vertical.' },
+        { src: misturadorMoinhoImg02, alt: 'Vista aproximada de misturador vertical metálico com acionamento superior.', caption: 'Detalhes construtivos do misturador vertical.' },
+        { src: misturadorMoinhoImg03, alt: 'Moinho e conjunto de alimentação montados sobre estrutura metálica.', caption: 'Conjunto de moagem e alimentação de produto.' },
+        { src: misturadorMoinhoImg04, alt: 'Vista superior de linha compacta com moinho, transportador e misturador vertical.', caption: 'Disposição integrada dos equipamentos da linha compacta.' },
       ],
     },
   ];
@@ -385,7 +479,7 @@ export default function PortfolioInstitucional() {
             backgroundImage: `linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url(${heroBackground})`,
           }}
         >
-          <div className="max-w-7xl mx-auto relative z-10">
+          <div className="portfolio-hero-content max-w-7xl mx-auto relative z-10">
             <div className="flex items-center space-x-3 mb-8">
               <img src={logoH2D} alt="Logo H2D Engenharia" className="h-12 w-12" />
               <h1 className="text-2xl font-bold">H2D ENGENHARIA</h1>
@@ -417,8 +511,7 @@ export default function PortfolioInstitucional() {
             </div>
           </div>
 
-          {/* Legenda ilustrativa no canto inferior direito */}
-          <div className="absolute bottom-4 right-6 text-xs text-gray-300 print:hidden">Imagem ilustrativa</div>
+          <div className="portfolio-hero-disclaimer print:hidden">Imagem ilustrativa</div>
         </section>
 
         {/* ===== 2. QUEM SOMOS ===== */}
@@ -629,6 +722,7 @@ export default function PortfolioInstitucional() {
                     {caseItem.image ? (
                       <>
                         <PortfolioImage src={caseItem.image} alt={caseItem.alt || caseItem.gallery?.[0]?.alt || caseItem.title} className="rounded-none" />
+                        {caseItem.illustrative && <span className="portfolio-image-badge">Imagem ilustrativa</span>}
                         {caseItem.gallery && (
                           <button type="button" onClick={() => openGallery(idx)} className="portfolio-gallery-trigger" aria-label={`Abrir galeria de ${caseItem.title}`}>
                             <span className="portfolio-gallery-trigger-label">Ver fotos</span>
