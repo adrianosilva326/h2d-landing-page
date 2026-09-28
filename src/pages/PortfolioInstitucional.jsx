@@ -14,8 +14,6 @@ import { PortfolioGallery } from '../components/PortfolioGallery';
 import logoH2D from '../assets/logoH2D.png';
 import heroBackground from '../assets/portfolio/hero-obra-ilustrativa.webp';
 import atuacaoCaldeiraria from '../assets/portfolio/atuacao-caldeiraria.webp';
-import atuacaoMontagem from '../assets/portfolio/atuacao-montagem.webp';
-import atuacaoEstruturasImg from '../assets/portfolio/atuacao-estruturas.webp';
 import atuacaoTransportadores from '../assets/portfolio/atuacao-transportadores.webp';
 import atuacaoEquipamentosAgro from '../assets/portfolio/atuacao-equipamentos-agroindustriais.webp';
 import atuacaoDutos from '../assets/portfolio/atuacao-dutos-exaustao.webp';
@@ -31,22 +29,22 @@ import caseDutos from '../assets/portfolio/case-dutos-exaustao.webp';
 // Galeria - Manutenção
 import manutencaoImg02 from '../assets/portfolio/gallery/manutencao/manutencao-02.webp';
 import manutencaoImg03 from '../assets/portfolio/gallery/manutencao/manutencao-03.webp';
-import manutencaoImg04 from '../assets/portfolio/gallery/manutencao/manutencao-04.webp';
 
 // Galeria - Estruturas
 import estruturasImg02 from '../assets/portfolio/gallery/estruturas/estrutura-02.webp';
 import estruturasImg03 from '../assets/portfolio/gallery/estruturas/estrutura-03.webp';
-import estruturasImg04 from '../assets/portfolio/gallery/estruturas/estrutura-04.webp';
 
 // Galeria - Fabricação
 import fabricacaoImg02 from '../assets/portfolio/gallery/fabricacao/fabricacao-02.webp';
 import fabricacaoImg03 from '../assets/portfolio/gallery/fabricacao/fabricacao-03.webp';
 import fabricacaoImg04 from '../assets/portfolio/gallery/fabricacao/fabricacao-04.webp';
+import fabricacaoImg05 from '../assets/portfolio/gallery/fabricacao/fabricacao-05.webp';
 
 // Galeria - Obras Civis
 import obrasImg02 from '../assets/portfolio/gallery/obras-civis/obra-civil-02.webp';
 import obrasImg03 from '../assets/portfolio/gallery/obras-civis/obra-civil-03.webp';
 import obrasImg04 from '../assets/portfolio/gallery/obras-civis/obra-civil-04.webp';
+import obrasImg05 from '../assets/portfolio/gallery/obras-civis/obra-civil-05.webp';
 
 // Galeria - Transportadores
 import transportadoresImg02 from '../assets/portfolio/gallery/transportadores/transportador-02.webp';
@@ -57,6 +55,8 @@ import transportadoresImg04 from '../assets/portfolio/gallery/transportadores/tr
 import agroImg02 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-02.webp';
 import agroImg03 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-03.webp';
 import agroImg04 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-04.webp';
+import agroImg05 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-05.webp';
+import agroImg06 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-06.webp';
 
 // Galeria - Mezaninos
 import mezaninosImg02 from '../assets/portfolio/gallery/mezaninos/mezanino-02.webp';
@@ -66,7 +66,6 @@ import mezaninosImg04 from '../assets/portfolio/gallery/mezaninos/mezanino-04.we
 // Galeria - Dutos
 import dutosImg02 from '../assets/portfolio/gallery/dutos/dutos-02.webp';
 import dutosImg03 from '../assets/portfolio/gallery/dutos/dutos-03.webp';
-import dutosImg04 from '../assets/portfolio/gallery/dutos/dutos-04.webp';
 
 // Logos de clientes
 import logoVenturoso from '../assets/logos/logo-vv.png';
@@ -211,37 +210,37 @@ export default function PortfolioInstitucional() {
       title: 'Caldeiraria e Fabricação',
       description: 'Estruturas, equipamentos, reservatórios, componentes e peças fabricadas sob medida para aplicações industriais.',
       image: atuacaoCaldeiraria,
-      alt: 'Componentes e estruturas metálicas fabricadas em caldeiraria industrial',
+      alt: 'Componente de caldeiraria em chapa de aço sendo fabricado em oficina industrial.',
     },
     {
       title: 'Montagem e Manutenção Industrial',
       description: 'Intervenções programadas e corretivas, desmontagens, reparos, instalações e suporte técnico em campo.',
-      image: atuacaoMontagem,
-      alt: 'Equipe realizando montagem e manutenção de equipamentos industriais',
+      image: manutencaoImg02,
+      alt: 'Guindaste realizando içamento de componente na área de evaporação de uma usina sucroenergética.',
     },
     {
       title: 'Estruturas Metálicas',
       description: 'Galpões, coberturas, ampliações, mezaninos, plataformas, passarelas e acessos industriais.',
-      image: atuacaoEstruturasImg,
-      alt: 'Estrutura metálica de galpão industrial em construção e montagem',
+      image: caseEstruturasInstalacoes,
+      alt: 'Mezanino metálico industrial com plataformas e guarda-corpos ao redor de equipamentos.',
     },
     {
       title: 'Transportadores e Movimentação de Materiais',
       description: 'Transportadores de correia, roscas e equipamentos desenvolvidos para movimentação de produtos e materiais.',
       image: atuacaoTransportadores,
-      alt: 'Transportador de correia e sistema de movimentação de materiais em operação',
+      alt: 'Transportador de correia móvel com estrutura metálica e correia com taliscas.',
     },
     {
       title: 'Equipamentos Agroindustriais',
       description: 'Equipamentos de pré-limpeza, mistura, moagem e apoio ao processamento de grãos e produtos.',
       image: atuacaoEquipamentosAgro,
-      alt: 'Equipamento agroindustrial de pré-limpeza e processamento de grãos',
+      alt: 'Conjunto agroindustrial compacto para alimentação, moagem, mistura e ensaque.',
     },
     {
       title: 'Dutos, Exaustão e Componentes de Processo',
       description: 'Exaustores, dutos, curvas, bicas, transições e componentes metálicos integrados à operação.',
       image: atuacaoDutos,
-      alt: 'Sistema de dutos e exaustão integrado à operação industrial',
+      alt: 'Exaustor centrífugo azul fabricado em oficina com motor elétrico acoplado.',
     },
   ];
 
@@ -258,11 +257,11 @@ export default function PortfolioInstitucional() {
       description: 'Recuperação, fabricação e instalação de componentes e estruturas para operação industrial contínua.',
       services: ['Caldeiraria', 'Manutenção', 'Fabricação', 'Instalação'],
       image: caseManutencao,
+      alt: 'Vista geral da área de evaporação industrial com vasos, tubulações e plataformas metálicas.',
       gallery: [
-        { src: caseManutencao, alt: 'Serviço de caldeiraria e montagem industrial em execução', caption: 'Manutenção e recuperação de componentes' },
-        { src: manutencaoImg02, alt: 'Detalhe de soldagem e fabricação em trabalho de caldeiraria', caption: 'Processo de fabricação e soldagem' },
-        { src: manutencaoImg03, alt: 'Equipamento montado após serviço de manutenção industrial', caption: 'Equipamento finalizado' },
-        { src: manutencaoImg04, alt: 'Equipe finalizando montagem de estrutura metálica', caption: 'Conclusão da montagem' },
+        { src: caseManutencao, alt: 'Vista geral da área de evaporação industrial com vasos, tubulações e plataformas metálicas.', caption: 'Área de evaporação da unidade industrial.' },
+        { src: manutencaoImg02, alt: 'Guindaste posicionado diante da área de evaporação para içamento de componente industrial.', caption: 'Içamento de componente de processo na área de evaporação.' },
+        { src: manutencaoImg03, alt: 'Operação de içamento vista por outro ângulo entre tubulações e equipamentos da evaporação.', caption: 'Operação de içamento em área industrial com interferências existentes.' },
       ],
     },
     {
@@ -270,11 +269,11 @@ export default function PortfolioInstitucional() {
       description: 'Galpões, coberturas, plataformas e ampliações para diferentes necessidades operacionais.',
       services: ['Galpões', 'Coberturas', 'Plataformas', 'Ampliações'],
       image: caseEstruturasInstalacoes,
+      alt: 'Mezanino metálico com plataformas e guarda-corpos ao redor de equipamentos industriais.',
       gallery: [
-        { src: caseEstruturasInstalacoes, alt: 'Estrutura metálica de galpão industrial em fase final de montagem', caption: 'Galpão em construção' },
-        { src: estruturasImg02, alt: 'Detalhe da cobertura metálica instalada no galpão', caption: 'Sistema de cobertura' },
-        { src: estruturasImg03, alt: 'Plataforma industrial montada sobre estrutura principal', caption: 'Plataforma de acesso' },
-        { src: estruturasImg04, alt: 'Estrutura metálica completa com ampliação executada', caption: 'Estrutura finalizada' },
+        { src: caseEstruturasInstalacoes, alt: 'Mezanino metálico com plataformas e guarda-corpos ao redor de equipamentos industriais.', caption: 'Mezanino e plataformas para acesso e operação dos equipamentos.' },
+        { src: estruturasImg02, alt: 'Vista inferior de mezanino metálico mostrando pilares, vigas e piso em chapa.', caption: 'Estrutura inferior e piso do mezanino metálico.' },
+        { src: estruturasImg03, alt: 'Escada metálica de acesso ao mezanino durante a etapa de instalação.', caption: 'Escada de acesso integrada à estrutura do mezanino.' },
       ],
     },
     {
@@ -282,11 +281,13 @@ export default function PortfolioInstitucional() {
       description: 'Fabricação de conjuntos metálicos, peças, dispositivos e gabaritos para aplicações industriais.',
       services: ['Fabricação', 'Peças Sob Medida', 'Dispositivos', 'Gabaritos'],
       image: caseFabricacao,
+      alt: 'Módulo de transportador com estrutura metálica, roletes e conjunto de acionamento.',
       gallery: [
-        { src: caseFabricacao, alt: 'Equipamento industrial fabricado sob medida em processo de conclusão', caption: 'Equipamento em produção' },
-        { src: fabricacaoImg02, alt: 'Detalhe de componentes metálicos fabricados e ajustados', caption: 'Componentes fabricados' },
-        { src: fabricacaoImg03, alt: 'Peças sob medida em fase de acabamento e montagem', caption: 'Peças em acabamento' },
-        { src: fabricacaoImg04, alt: 'Equipamento finalizado e testado pronto para entrega', caption: 'Equipamento entregue' },
+        { src: caseFabricacao, alt: 'Módulo de transportador com estrutura metálica, roletes e conjunto de acionamento.', caption: 'Módulo motorizado de transportador em fase de fabricação.' },
+        { src: fabricacaoImg02, alt: 'Conjuntos estruturais verdes com diversos roletes metálicos para transportadores.', caption: 'Estruturas e roletes de transportadores fabricados sob medida.' },
+        { src: fabricacaoImg03, alt: 'Válvula desviadora galvanizada instalada abaixo de uma moega.', caption: 'Válvula bifurcada para desvio do fluxo de grãos, também conhecida como perna de moça.' },
+        { src: fabricacaoImg04, alt: 'Bica galvanizada com transição de seção quadrada para circular.', caption: 'Bica metálica com transição quadrado-redondo.' },
+        { src: fabricacaoImg05, alt: 'Outra perspectiva de bica metálica galvanizada com saída circular.', caption: 'Detalhes construtivos da transição de seção quadrada para circular.' },
       ],
     },
     {
@@ -294,11 +295,13 @@ export default function PortfolioInstitucional() {
       description: 'Execução de fundações, pisos, contenções, alvenarias e complementos para instalações operacionais.',
       services: ['Fundações', 'Pisos', 'Contenções', 'Infraestrutura'],
       image: caseObrasC,
+      alt: 'Ampliação industrial com estrutura metálica, cobertura e alvenaria em execução.',
       gallery: [
-        { src: caseObrasC, alt: 'Obra civil com estrutura de fundação e infraestrutura em andamento', caption: 'Fundação e infraestrutura' },
-        { src: obrasImg02, alt: 'Piso industrial sendo aplicado sobre fundação preparada', caption: 'Aplicação de pisos' },
-        { src: obrasImg03, alt: 'Sistema de contenção e drenagem implementado na obra', caption: 'Contenção e drenagem' },
-        { src: obrasImg04, alt: 'Obra civil concluída mostrando infraestrutura final', caption: 'Obra finalizada' },
+        { src: caseObrasC, alt: 'Ampliação industrial com estrutura metálica, cobertura e alvenaria em execução.', caption: 'Execução integrada de estrutura metálica, cobertura e alvenaria.' },
+        { src: obrasImg02, alt: 'Vista interna de cobertura com tesouras metálicas, terças e telhas.', caption: 'Detalhes das tesouras e do sistema de cobertura metálica.' },
+        { src: obrasImg03, alt: 'Perspectiva externa da ampliação com pilares metálicos, cobertura e alvenaria.', caption: 'Estrutura metálica e componentes civis em fase de execução.' },
+        { src: obrasImg04, alt: 'Vista interna pelo lado oposto mostrando cobertura metálica e alvenaria em execução.', caption: 'Outra perspectiva da cobertura e dos fechamentos ainda em execução.' },
+        { src: obrasImg05, alt: 'Cobertura metálica com tesouras treliçadas e telhas sobre área operacional.', caption: 'Cobertura executada com tesouras metálicas treliçadas.' },
       ],
     },
     {
@@ -312,11 +315,12 @@ export default function PortfolioInstitucional() {
       description: 'Fabricação e adequação de transportadores de correia, roscas e conjuntos para movimentação contínua de produtos.',
       services: ['Transportadores', 'Roscas', 'Acionamentos', 'Componentes'],
       image: caseTransportadores,
+      alt: 'Transportador helicoidal aberto mostrando calha, eixo e espiras.',
       gallery: [
-        { src: caseTransportadores, alt: 'Transportador de correia instalado e em operação de movimentação de materiais', caption: 'Sistema de transportador' },
-        { src: transportadoresImg02, alt: 'Detalhe do sistema de polia e correia do transportador', caption: 'Sistema de correia' },
-        { src: transportadoresImg03, alt: 'Transportador de rosca para movimentação de grãos ou pó', caption: 'Transportador de rosca' },
-        { src: transportadoresImg04, alt: 'Transportador completo em operação dentro da unidade', caption: 'Sistema em operação' },
+        { src: caseTransportadores, alt: 'Transportador helicoidal aberto mostrando calha, eixo e espiras.', caption: 'Transportador de rosca helicoidal fabricado para movimentação de materiais.' },
+        { src: transportadoresImg02, alt: 'Detalhe frontal de transportador helicoidal com mancal, eixo e espiras.', caption: 'Mancal e conjunto helicoidal vistos pela extremidade do transportador.' },
+        { src: transportadoresImg03, alt: 'Vista longitudinal da calha aberta e do helicoide durante a montagem.', caption: 'Calha e rosca helicoidal em fase de fabricação.' },
+        { src: transportadoresImg04, alt: 'Transportador helicoidal visto pela extremidade oposta com eixo e mancal.', caption: 'Outra perspectiva do eixo e do conjunto helicoidal.' },
       ],
     },
     {
@@ -324,11 +328,14 @@ export default function PortfolioInstitucional() {
       description: 'Fabricação, montagem e adequação de equipamentos destinados à preparação e ao processamento de produtos agroindustriais.',
       services: ['Pré-Limpeza', 'Mistura', 'Processamento', 'Montagem'],
       image: caseEquipamentosAgro,
+      alt: 'Equipamento agroindustrial de pré-limpeza com peneira e proteções amarelas.',
       gallery: [
-        { src: caseEquipamentosAgro, alt: 'Equipamento agroindustrial de pré-limpeza e processamento montado', caption: 'Equipamento agroindustrial' },
-        { src: agroImg02, alt: 'Detalhe do sistema de peneiramento e limpeza do equipamento', caption: 'Sistema de pré-limpeza' },
-        { src: agroImg03, alt: 'Equipamento de mistura e processamento de produtos agrícolas', caption: 'Sistema de mistura' },
-        { src: agroImg04, alt: 'Equipamento completo integrado à linha de processamento da usina', caption: 'Sistema integrado' },
+        { src: caseEquipamentosAgro, alt: 'Equipamento agroindustrial de pré-limpeza com peneira e proteções amarelas.', caption: 'Equipamento de pré-limpeza para preparação de produtos agroindustriais.' },
+        { src: agroImg02, alt: 'Moega de alimentação instalada sobre a estrutura de um equipamento de pré-limpeza.', caption: 'Moega e sistema de alimentação da pré-limpeza.' },
+        { src: agroImg03, alt: 'Vista frontal da pré-limpeza mostrando peneira, acionamento e proteções.', caption: 'Conjunto de peneiramento e acionamento da pré-limpeza.' },
+        { src: agroImg04, alt: 'Vista lateral e superior do equipamento de pré-limpeza com moegas de alimentação.', caption: 'Superfície peneirante e pontos de alimentação do equipamento.' },
+        { src: agroImg05, alt: 'Conjunto de alimentação com moega instalado sobre estrutura metálica azul.', caption: 'Sistema de alimentação associado ao conjunto de pré-limpeza.' },
+        { src: agroImg06, alt: 'Conjunto agroindustrial compacto com alimentador, moinho e misturador vertical.', caption: 'Linha compacta para alimentação, moagem, mistura vertical e ensaque.' },
       ],
     },
     {
@@ -336,11 +343,12 @@ export default function PortfolioInstitucional() {
       description: 'Estruturas auxiliares, acessos e proteções coletivas desenvolvidos conforme as condições de uso e operação.',
       services: ['Mezaninos', 'Plataformas', 'Escadas', 'Guarda-Corpos'],
       image: caseMezaninos,
+      alt: 'Guarda-corpos metálicos amarelos instalados em plataforma junto a sistema industrial.',
       gallery: [
-        { src: caseMezaninos, alt: 'Mezanino industrial com plataforma e acesso montado dentro da estrutura', caption: 'Mezanino e plataforma' },
-        { src: mezaninosImg02, alt: 'Escada de acesso ao mezanino com guarda-corpo de segurança instalado', caption: 'Acesso e guarda-corpo' },
-        { src: mezaninosImg03, alt: 'Detalhe da estrutura do mezanino com piso e proteção em operação', caption: 'Estrutura e piso' },
-        { src: mezaninosImg04, alt: 'Mezanino completo com os acessos e proteções finalizados', caption: 'Mezanino finalizado' },
+        { src: caseMezaninos, alt: 'Guarda-corpos metálicos amarelos instalados em plataforma junto a sistema industrial.', caption: 'Proteção coletiva instalada no perímetro da plataforma.' },
+        { src: mezaninosImg02, alt: 'Guarda-corpos amarelos com painéis de tela e rodapés no perímetro da plataforma.', caption: 'Guarda-corpos com tela de proteção e rodapés metálicos.' },
+        { src: mezaninosImg03, alt: 'Detalhe dos guarda-corpos junto ao acesso por escada da plataforma.', caption: 'Proteção da plataforma junto à escada de acesso.' },
+        { src: mezaninosImg04, alt: 'Vista panorâmica dos guarda-corpos amarelos instalados em plataforma elevada.', caption: 'Guarda-corpos fabricados e instalados pela H2D.' },
       ],
     },
     {
@@ -348,11 +356,11 @@ export default function PortfolioInstitucional() {
       description: 'Fabricação e instalação de exaustores, dutos, curvas, bicas e transições para sistemas industriais.',
       services: ['Exaustão', 'Dutos', 'Curvas', 'Bicas e Transições'],
       image: caseDutos,
+      alt: 'Exaustor centrífugo azul visto pela entrada de ar e pelo rotor.',
       gallery: [
-        { src: caseDutos, alt: 'Sistema de dutos e exaustão industrial em fase final de montagem', caption: 'Sistema de exaustão' },
-        { src: dutosImg02, alt: 'Detalhe das curvas e transições de dutos soldadas conforme especificação', caption: 'Curvas e transições' },
-        { src: dutosImg03, alt: 'Exaustor industrial montado na saída do sistema de dutos', caption: 'Exaustor montado' },
-        { src: dutosImg04, alt: 'Sistema completo de dutos e exaustão em operação na unidade', caption: 'Sistema em operação' },
+        { src: caseDutos, alt: 'Exaustor centrífugo azul visto pela entrada de ar e pelo rotor.', caption: 'Exaustor centrífugo fabricado pela H2D.' },
+        { src: dutosImg02, alt: 'Vista lateral do exaustor centrífugo com carcaça, motor e saída de descarga.', caption: 'Outra perspectiva do exaustor e de seu acionamento elétrico.' },
+        { src: dutosImg03, alt: 'Curva de gomos em chapa metálica durante a etapa de montagem e ponteamento.', caption: 'Curva de gomos fabricada para sistemas de dutos industriais.' },
       ],
     },
   ];
@@ -616,11 +624,11 @@ export default function PortfolioInstitucional() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {cases.map((caseItem, idx) => (
-                <article key={idx} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
+                <article key={caseItem.title} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
                   <div className="portfolio-case-media">
                     {caseItem.image ? (
                       <>
-                        <PortfolioImage src={caseItem.image} alt={`Projeto de ${caseItem.title}`} className="rounded-none" />
+                        <PortfolioImage src={caseItem.image} alt={caseItem.alt || caseItem.gallery?.[0]?.alt || caseItem.title} className="rounded-none" />
                         {caseItem.gallery && (
                           <button type="button" onClick={() => openGallery(idx)} className="portfolio-gallery-trigger" aria-label={`Abrir galeria de ${caseItem.title}`}>
                             <span className="portfolio-gallery-trigger-label">Ver fotos</span>
@@ -638,8 +646,8 @@ export default function PortfolioInstitucional() {
                     <div className="space-y-2">
                       <p className="text-sm font-semibold text-gray-600">Serviços envolvidos:</p>
                       <div className="flex flex-wrap gap-2">
-                        {caseItem.services.map((service, serviceIdx) => (
-                          <span key={serviceIdx} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
+                        {caseItem.services.map((service) => (
+                          <span key={service} className="bg-blue-50 text-[var(--h2d-blue-dark)] px-3 py-1 rounded-full text-sm font-medium">
                             {service}
                           </span>
                         ))}
@@ -653,7 +661,7 @@ export default function PortfolioInstitucional() {
         </section>
 
         {/* Galeria Modal */}
-        {galleryState.caseIndex >= 0 && cases[galleryState.caseIndex]?.gallery && <PortfolioGallery open={galleryState.open} onClose={closeGallery} title={cases[galleryState.caseIndex].title} images={cases[galleryState.caseIndex].gallery} initialIndex={galleryState.initialIndex} />}
+        {galleryState.open && galleryState.caseIndex >= 0 && cases[galleryState.caseIndex]?.gallery && <PortfolioGallery open={galleryState.open} onClose={closeGallery} title={cases[galleryState.caseIndex].title} images={cases[galleryState.caseIndex].gallery} initialIndex={galleryState.initialIndex} />}
 
         {/* ===== 10. SEGMENTOS ATENDIDOS ===== */}
         <section id="segmentos" className="py-20 px-4 bg-white print-page-break">

@@ -103,7 +103,7 @@ export function PortfolioGallery({ open, onClose, title, images, initialIndex = 
           <div className="portfolio-gallery-thumbnails">
             {images.map((img, idx) => (
               <button type="button" key={img.src} onClick={() => setCurrentIndex(idx)} className={`portfolio-gallery-thumbnail ${idx === currentIndex ? 'portfolio-gallery-thumbnail--active' : ''}`} aria-label={`Ver imagem ${idx + 1}: ${img.alt}`} aria-current={idx === currentIndex ? 'true' : undefined}>
-                <img src={img.src} alt="" className="portfolio-gallery-thumbnail-img" />
+                <img src={img.src} alt={`Miniatura: ${img.alt}`} className="portfolio-gallery-thumbnail-img" />
               </button>
             ))}
           </div>
