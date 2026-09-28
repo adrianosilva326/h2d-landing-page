@@ -86,7 +86,13 @@ export default function PortfolioInstitucional() {
   } = portfolioContacts;
   return (
     <>
-      <MetaTags title="Portfólio Institucional | H2D Engenharia" description="Engenharia, fabricação, montagem e manutenção para operações industriais e agroindustriais. Conheça nossa experiência e soluções integradas." canonicalPath="/portfolio" imageUrl={heroBackground} />
+      <MetaTags
+        title="Portfólio Institucional | H2D Engenharia"
+        description="Conheça obras, equipamentos e soluções desenvolvidas pela H2D Engenharia para operações industriais, agroindustriais e de infraestrutura."
+        canonicalPath="/portfolio"
+        imageUrl="/og-image.jpg"
+        imageAlt="H2D Engenharia - soluções industriais, agroindustriais e de infraestrutura"
+      />
 
       <main className="portfolio-page min-h-screen bg-white">
         {/* ===== 1. CAPA / HERO ===== */}

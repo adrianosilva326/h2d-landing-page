@@ -20,7 +20,7 @@ const getCaseImages = (caseItem) => {
   const candidates = [
     caseItem.printImage && { src: caseItem.printImage, alt: caseItem.alt || caseItem.title },
     ...(caseItem.gallery || []).map((image) => ({ ...image, src: image.printSrc })),
-  ].filter(Boolean);
+  ].filter((image) => image?.src);
   const seen = new Set();
 
   return candidates.filter((image) => {

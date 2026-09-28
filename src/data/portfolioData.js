@@ -16,16 +16,23 @@ import caseDutos from '../assets/portfolio/case-dutos-exaustao.webp';
 // Galeria - Manutenção
 import manutencaoImg02 from '../assets/portfolio/gallery/manutencao/manutencao-02.webp';
 import manutencaoImg03 from '../assets/portfolio/gallery/manutencao/manutencao-03.webp';
+import manutencaoImg04 from '../assets/portfolio/gallery/manutencao/manutencao-04.webp';
 
 // Galeria - Estruturas
 import estruturasImg02 from '../assets/portfolio/gallery/estruturas/estrutura-02.webp';
 import estruturasImg03 from '../assets/portfolio/gallery/estruturas/estrutura-03.webp';
+import estruturasImg04 from '../assets/portfolio/gallery/estruturas/estrutura-04.webp';
+import estruturasImg05 from '../assets/portfolio/gallery/estruturas/estrutura-05.webp';
 
 // Galeria - Fabricação
 import fabricacaoImg02 from '../assets/portfolio/gallery/fabricacao/fabricacao-02.webp';
 import fabricacaoImg03 from '../assets/portfolio/gallery/fabricacao/fabricacao-03.webp';
 import fabricacaoImg04 from '../assets/portfolio/gallery/fabricacao/fabricacao-04.webp';
 import fabricacaoImg05 from '../assets/portfolio/gallery/fabricacao/fabricacao-05.webp';
+import fabricacaoImg06 from '../assets/portfolio/gallery/fabricacao/fabricacao-06.webp';
+import fabricacaoImg07 from '../assets/portfolio/gallery/fabricacao/fabricacao-07.webp';
+import fabricacaoImg08 from '../assets/portfolio/gallery/fabricacao/fabricacao-08.webp';
+import fabricacaoImg09 from '../assets/portfolio/gallery/fabricacao/fabricacao-09.webp';
 
 // Galeria - Obras Civis
 import obrasImg02 from '../assets/portfolio/gallery/obras-civis/obra-civil-02.webp';
@@ -37,6 +44,7 @@ import obrasImg05 from '../assets/portfolio/gallery/obras-civis/obra-civil-05.we
 import transportadoresImg02 from '../assets/portfolio/gallery/transportadores/transportador-02.webp';
 import transportadoresImg03 from '../assets/portfolio/gallery/transportadores/transportador-03.webp';
 import transportadoresImg04 from '../assets/portfolio/gallery/transportadores/transportador-04.webp';
+import transportadoresImg05 from '../assets/portfolio/gallery/transportadores/transportador-05.webp';
 
 // Galeria - Equipamentos Agroindustriais
 import agroImg02 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-02.webp';
@@ -65,11 +73,17 @@ import centroTriagemImg07 from '../assets/portfolio/gallery/centro-triagem/centr
 
 // Imagem ilustrativa - Drenagem
 import drenagemImg01 from '../assets/portfolio/gallery/drenagem/drenagem-01.webp';
+import drenagemImg02 from '../assets/portfolio/gallery/drenagem/drenagem-02.webp';
 
 // Galeria - Curvas de Gomos
 import curvaGomosImg01 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-01.webp';
 import curvaGomosImg02 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-02.webp';
 import curvaGomosImg03 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-03.webp';
+import curvaGomosImg04 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-04.webp';
+import curvaGomosImg05 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-05.webp';
+import curvaGomosImg06 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-06.webp';
+import curvaGomosImg07 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-07.webp';
+import curvaGomosImg08 from '../assets/portfolio/gallery/curvas-gomos/curva-gomos-08.webp';
 
 // Galeria - Tanques
 import tanqueImg01 from '../assets/portfolio/gallery/tanques/tanque-01.webp';
@@ -269,6 +283,8 @@ export const cases = [
       { src: caseManutencao, printSrc: getPrintSrc('case-manutencao-industrial.jpg'), alt: 'Vista geral da área de evaporação industrial com vasos, tubulações e plataformas metálicas.', caption: 'Área de evaporação da unidade industrial.' },
       { src: manutencaoImg02, printSrc: getPrintSrc('manutencao-02.jpg'), alt: 'Guindaste posicionado diante da área de evaporação para içamento de componente industrial.', caption: 'Içamento de componente de processo na área de evaporação.' },
       { src: manutencaoImg03, printSrc: getPrintSrc('manutencao-03.jpg'), alt: 'Operação de içamento vista por outro ângulo entre tubulações e equipamentos da evaporação.', caption: 'Operação de içamento em área industrial com interferências existentes.' },
+      { src: manutencaoImg04, alt: 'Componente de caldeiraria de grandes dimensões em fabricação na oficina.', caption: 'Fabricação e montagem de componente metálico de caldeiraria.' },
+      { src: atuacaoCaldeiraria, alt: 'Cone ou transição metálica de grandes dimensões durante a fabricação.', caption: 'Cone e transição metálica em etapa de fabricação.' },
     ],
   },
   {
@@ -283,6 +299,8 @@ export const cases = [
       { src: caseEstruturasInstalacoes, printSrc: getPrintSrc('case-estruturas-instalacoes.jpg'), alt: 'Mezanino metálico com plataformas e guarda-corpos ao redor de equipamentos industriais.', caption: 'Mezanino e plataformas para acesso e operação dos equipamentos.' },
       { src: estruturasImg02, printSrc: getPrintSrc('estrutura-02.jpg'), alt: 'Vista inferior de mezanino metálico mostrando pilares, vigas e piso em chapa.', caption: 'Estrutura inferior e piso do mezanino metálico.' },
       { src: estruturasImg03, printSrc: getPrintSrc('estrutura-03.jpg'), alt: 'Escada metálica de acesso ao mezanino durante a etapa de instalação.', caption: 'Escada de acesso integrada à estrutura do mezanino.' },
+      { src: estruturasImg04, printSrc: getPrintSrc('estrutura-04.jpg'), alt: 'Estrutura de mezanino com pilares e vigas metálicas durante a montagem.', caption: 'Pilares e vigas do mezanino em etapa de montagem.' },
+      { src: estruturasImg05, printSrc: getPrintSrc('estrutura-05.jpg'), alt: 'Piso metálico em chapa xadrez sendo montado sobre a estrutura de um mezanino.', caption: 'Montagem do piso metálico sobre a estrutura do mezanino.' },
     ],
   },
   {
@@ -299,6 +317,10 @@ export const cases = [
       { src: fabricacaoImg03, printSrc: getPrintSrc('fabricacao-03.jpg'), alt: 'Válvula desviadora galvanizada instalada abaixo de uma moega.', caption: 'Válvula bifurcada para desvio do fluxo de grãos, também conhecida como perna de moça.' },
       { src: fabricacaoImg04, printSrc: getPrintSrc('fabricacao-04.jpg'), alt: 'Bica galvanizada com transição de seção quadrada para circular.', caption: 'Bica metálica com transição quadrado-redondo.' },
       { src: fabricacaoImg05, printSrc: getPrintSrc('fabricacao-05.jpg'), alt: 'Outra perspectiva de bica metálica galvanizada com saída circular.', caption: 'Detalhes construtivos da transição de seção quadrada para circular.' },
+      { src: fabricacaoImg06, alt: 'Vista lateral de bifurcada galvanizada instalada para desvio de fluxo.', caption: 'Componentes da bifurcada para direcionamento do fluxo de grãos.' },
+      { src: fabricacaoImg07, alt: 'Vista oposta da bifurcada galvanizada e de suas conexões metálicas.', caption: 'Detalhes construtivos do conjunto metálico de desvio.' },
+      { src: fabricacaoImg08, alt: 'Transportador de correia instalado em área industrial, visto no sentido longitudinal.', caption: 'Transportador de correia instalado e integrado à estrutura existente.' },
+      { src: fabricacaoImg09, alt: 'Transportador de correia instalado ao lado de equipamentos do processo.', caption: 'Disposição do transportador de correia em campo junto ao processo existente.' },
     ],
   },
   {
@@ -326,6 +348,10 @@ export const cases = [
     printImage: getPrintSrc('drenagem-01.jpg'),
     alt: 'Representação ilustrativa de sistema de drenagem superficial e tubulação em área industrial.',
     illustrative: true,
+    gallery: [
+      { src: drenagemImg01, printSrc: getPrintSrc('drenagem-01.jpg'), alt: 'Representação ilustrativa de sistema de drenagem superficial e tubulação em área industrial.', caption: 'Imagem ilustrativa de soluções de drenagem para áreas industriais.' },
+      { src: drenagemImg02, printSrc: getPrintSrc('drenagem-02.jpg'), alt: 'Representação ilustrativa de projetos de engenharia e drenagem apresentados em pranchas e modelo digital.', caption: 'Imagem ilustrativa do desenvolvimento de projetos de engenharia e drenagem.' },
+    ],
   },
   {
     title: 'Transportadores e Movimentação de Materiais',
@@ -340,6 +366,7 @@ export const cases = [
       { src: transportadoresImg02, printSrc: getPrintSrc('transportador-02.jpg'), alt: 'Detalhe frontal de transportador helicoidal com mancal, eixo e espiras.', caption: 'Mancal e conjunto helicoidal vistos pela extremidade do transportador.' },
       { src: transportadoresImg03, printSrc: getPrintSrc('transportador-03.jpg'), alt: 'Vista longitudinal da calha aberta e do helicoide durante a montagem.', caption: 'Calha e rosca helicoidal em fase de fabricação.' },
       { src: transportadoresImg04, printSrc: getPrintSrc('transportador-04.jpg'), alt: 'Transportador helicoidal visto pela extremidade oposta com eixo e mancal.', caption: 'Outra perspectiva do eixo e do conjunto helicoidal.' },
+      { src: transportadoresImg05, printSrc: getPrintSrc('transportador-05.jpg'), alt: 'Transportador helicoidal fechado em aço galvanizado, com bocais e carenagem metálica.', caption: 'Conjunto helicoidal fechado e montado, com bocais de entrada e saída.' },
     ],
   },
   {
@@ -384,6 +411,7 @@ export const cases = [
     gallery: [
       { src: caseDutos, printSrc: getPrintSrc('case-dutos-exaustao.jpg'), alt: 'Exaustor centrífugo azul visto pela entrada de ar e pelo rotor.', caption: 'Exaustor centrífugo fabricado pela H2D.' },
       { src: dutosImg02, printSrc: getPrintSrc('dutos-02.jpg'), alt: 'Vista lateral do exaustor centrífugo com carcaça, motor e saída de descarga.', caption: 'Outra perspectiva do exaustor e de seu acionamento elétrico.' },
+      { src: atuacaoDutos, printSrc: getPrintSrc('atuacao-dutos-exaustao.jpg'), alt: 'Vista posterior e lateral do exaustor centrífugo com motor e saída de descarga.', caption: 'Perspectiva posterior do exaustor, de sua carcaça e do acionamento.' },
     ],
   },
   {
@@ -397,8 +425,13 @@ export const cases = [
     gallery: [
       { src: dutosImg03, printSrc: getPrintSrc('dutos-03.jpg'), alt: 'Curva de gomos em chapa metálica durante a etapa de montagem e ponteamento.', caption: 'Curva segmentada durante a etapa de montagem.' },
       { src: curvaGomosImg01, printSrc: getPrintSrc('curva-gomos-01.jpg'), alt: 'Conjunto vertical de curvas de gomos metálicas em diferentes ângulos.', caption: 'Curvas segmentadas fabricadas em diferentes geometrias.' },
-      { src: curvaGomosImg02, printSrc: getPrintSrc('curva-gomos-02.jpg'), alt: 'Conjunto de curvas de gomos metálicas em diferentes diâmetros e ângulos.', caption: 'Componentes curvos preparados para aplicações em sistemas industriais.' },
+      { src: curvaGomosImg02, alt: 'Conjunto de curvas de gomos metálicas em diferentes diâmetros e ângulos.', caption: 'Componentes curvos preparados para aplicações em sistemas industriais.' },
       { src: curvaGomosImg03, printSrc: getPrintSrc('curva-gomos-03.jpg'), alt: 'Curvas de gomos metálicas finalizadas e organizadas em área de fabricação.', caption: 'Curvas metálicas finalizadas em diferentes configurações.' },
+      { src: curvaGomosImg04, printSrc: getPrintSrc('curva-gomos-04.jpg'), alt: 'Curva de gomos metálica finalizada, vista lateralmente sobre o piso da oficina.', caption: 'Vista lateral da curva segmentada e de suas juntas soldadas.' },
+      { src: curvaGomosImg05, alt: 'Curva de gomos metálica vista pela abertura e pelo interior do componente.', caption: 'Geometria interna e união dos segmentos da curva metálica.' },
+      { src: curvaGomosImg06, alt: 'Curva de gomos metálica apoiada verticalmente na área de fabricação.', caption: 'Perspectiva vertical da curva segmentada finalizada.' },
+      { src: curvaGomosImg07, printSrc: getPrintSrc('curva-gomos-07.jpg'), alt: 'Curva de gomos metálica finalizada em vista ampla da área industrial.', caption: 'Curva metálica finalizada e preparada para aplicação.' },
+      { src: curvaGomosImg08, alt: 'Curva de gomos metálica vista por cima, destacando os cordões de solda.', caption: 'Detalhes das uniões soldadas entre os segmentos da curva.' },
     ],
   },
   {
@@ -440,8 +473,8 @@ export const portfolioContacts = {
   commercialWhatsAppUrl: 'https://wa.me/5516997971044',
   engineerPhone: '(16) 99965-2322',
   engineerWhatsAppUrl: 'https://wa.me/5516999652322',
-  email: 'contato@h2dengenharia.com.br',
-  emailUrl: 'mailto:contato@h2dengenharia.com.br',
+  email: 'contatos@h2dengenharia.com.br',
+  emailUrl: 'mailto:contatos@h2dengenharia.com.br',
   city: 'São Joaquim da Barra – SP',
   website: 'h2dengenharia.com.br',
 };

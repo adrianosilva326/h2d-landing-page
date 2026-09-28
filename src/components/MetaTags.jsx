@@ -7,11 +7,13 @@ import { Helmet } from 'react-helmet-async';
 // © Adriano Vieira — eng.adrianovieira.com
 const OG_IMAGE_URL = 'https://h2dengenharia.com.br/og-image.jpg';
 const BASE_URL = 'https://h2dengenharia.com.br';
+const DEFAULT_IMAGE_ALT = 'H2D Engenharia - soluções industriais, agroindustriais e de infraestrutura';
 
 export function MetaTags({
   title = "Galpões Industriais e Logísticos | H2D Engenharia",
   description = "Projetamos e construímos galpões industriais, comerciais e logísticos em estrutura metálica e pré-moldado. Soluções completas, do projeto à entrega. Fale com nossos engenheiros e peça um orçamento.",
   imageUrl = OG_IMAGE_URL,
+  imageAlt = DEFAULT_IMAGE_ALT,
   canonicalPath = "/", // <-- NOVO: Adicione um caminho padrão
   robots,
 }) {
@@ -37,6 +39,7 @@ export function MetaTags({
       <meta property="og:image" content={absoluteImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="pt_BR" />
 
@@ -45,6 +48,7 @@ export function MetaTags({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImageUrl} />
+      <meta name="twitter:image:alt" content={imageAlt} />
     </Helmet>
   );
 }

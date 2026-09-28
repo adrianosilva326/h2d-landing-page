@@ -374,7 +374,7 @@ function App() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5 text-[var(--h2d-yellow)]" />
-                    <span className="text-gray-300">contato@h2dengenharia.com.br</span>
+                    <span className="text-gray-300">contatos@h2dengenharia.com.br</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="h-5 w-5 text-[var(--h2d-yellow)]" />
