@@ -1,24 +1,72 @@
 // src/pages/PortfolioInstitucional.jsx
 
 import { MetaTags } from '../components/MetaTags';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './PortfolioInstitucional.css';
 import { Button } from '../components/ui/button';
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Image, Camera, Wrench } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { CookieConsentBanner } from '../components/CookieConsentBanner';
+import { PortfolioGallery } from '../components/PortfolioGallery';
 
 // Imagens
 import logoH2D from '../assets/logoH2D.png';
-import heroBackground from '../assets/portfolio/hero-obra-ilustrativa.png';
-import atuacaoCaldeiraria from '../assets/portfolio/atuacao-caldeiraria.png';
-import atuacaoMontagem from '../assets/portfolio/atuacao-montagem.jpg';
-import atuacaoEstruturasImg from '../assets/portfolio/atuacao-estruturas.png';
-import caseManutencao from '../assets/portfolio/case-manutencao-industrial.jpg';
-import caseEstruturasInstalacoes from '../assets/portfolio/case-estruturas-instalacoes.png';
-import caseFabricacao from '../assets/portfolio/case-fabricacao-equipamentos.png';
-import caseObrasC from '../assets/portfolio/case-obras-civis.png';
+import heroBackground from '../assets/portfolio/hero-obra-ilustrativa.webp';
+import atuacaoCaldeiraria from '../assets/portfolio/atuacao-caldeiraria.webp';
+import atuacaoMontagem from '../assets/portfolio/atuacao-montagem.webp';
+import atuacaoEstruturasImg from '../assets/portfolio/atuacao-estruturas.webp';
+import atuacaoTransportadores from '../assets/portfolio/atuacao-transportadores.webp';
+import atuacaoEquipamentosAgro from '../assets/portfolio/atuacao-equipamentos-agroindustriais.webp';
+import atuacaoDutos from '../assets/portfolio/atuacao-dutos-exaustao.webp';
+import caseManutencao from '../assets/portfolio/case-manutencao-industrial.webp';
+import caseEstruturasInstalacoes from '../assets/portfolio/case-estruturas-instalacoes.webp';
+import caseFabricacao from '../assets/portfolio/case-fabricacao-equipamentos.webp';
+import caseObrasC from '../assets/portfolio/case-obras-civis.webp';
+import caseTransportadores from '../assets/portfolio/case-transportadores.webp';
+import caseEquipamentosAgro from '../assets/portfolio/case-equipamentos-agroindustriais.webp';
+import caseMezaninos from '../assets/portfolio/case-mezaninos-acessos.webp';
+import caseDutos from '../assets/portfolio/case-dutos-exaustao.webp';
+
+// Galeria - Manutenção
+import manutencaoImg02 from '../assets/portfolio/gallery/manutencao/manutencao-02.webp';
+import manutencaoImg03 from '../assets/portfolio/gallery/manutencao/manutencao-03.webp';
+import manutencaoImg04 from '../assets/portfolio/gallery/manutencao/manutencao-04.webp';
+
+// Galeria - Estruturas
+import estruturasImg02 from '../assets/portfolio/gallery/estruturas/estrutura-02.webp';
+import estruturasImg03 from '../assets/portfolio/gallery/estruturas/estrutura-03.webp';
+import estruturasImg04 from '../assets/portfolio/gallery/estruturas/estrutura-04.webp';
+
+// Galeria - Fabricação
+import fabricacaoImg02 from '../assets/portfolio/gallery/fabricacao/fabricacao-02.webp';
+import fabricacaoImg03 from '../assets/portfolio/gallery/fabricacao/fabricacao-03.webp';
+import fabricacaoImg04 from '../assets/portfolio/gallery/fabricacao/fabricacao-04.webp';
+
+// Galeria - Obras Civis
+import obrasImg02 from '../assets/portfolio/gallery/obras-civis/obra-civil-02.webp';
+import obrasImg03 from '../assets/portfolio/gallery/obras-civis/obra-civil-03.webp';
+import obrasImg04 from '../assets/portfolio/gallery/obras-civis/obra-civil-04.webp';
+
+// Galeria - Transportadores
+import transportadoresImg02 from '../assets/portfolio/gallery/transportadores/transportador-02.webp';
+import transportadoresImg03 from '../assets/portfolio/gallery/transportadores/transportador-03.webp';
+import transportadoresImg04 from '../assets/portfolio/gallery/transportadores/transportador-04.webp';
+
+// Galeria - Equipamentos Agroindustriais
+import agroImg02 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-02.webp';
+import agroImg03 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-03.webp';
+import agroImg04 from '../assets/portfolio/gallery/agroindustriais/agroindustrial-04.webp';
+
+// Galeria - Mezaninos
+import mezaninosImg02 from '../assets/portfolio/gallery/mezaninos/mezanino-02.webp';
+import mezaninosImg03 from '../assets/portfolio/gallery/mezaninos/mezanino-03.webp';
+import mezaninosImg04 from '../assets/portfolio/gallery/mezaninos/mezanino-04.webp';
+
+// Galeria - Dutos
+import dutosImg02 from '../assets/portfolio/gallery/dutos/dutos-02.webp';
+import dutosImg03 from '../assets/portfolio/gallery/dutos/dutos-03.webp';
+import dutosImg04 from '../assets/portfolio/gallery/dutos/dutos-04.webp';
 
 // Logos de clientes
 import logoVenturoso from '../assets/logos/logo-vv.png';
@@ -57,15 +105,7 @@ function ImagePlaceholder({ title, description, aspect = '16 / 9', className = '
 }
 
 function PortfolioImage({ src, alt, className = '', objectPosition = 'center', loading = 'lazy' }) {
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={`portfolio-image ${className}`.trim()}
-      style={{ objectPosition }}
-      loading={loading}
-    />
-  );
+  return <img src={src} alt={alt} className={`portfolio-image ${className}`.trim()} style={{ objectPosition }} loading={loading} />;
 }
 
 function ClientLogoCard({ src, alt, name }) {
@@ -81,10 +121,19 @@ function ClientLogoCard({ src, alt, name }) {
 
 export default function PortfolioInstitucional() {
   const formRef = useRef(null);
+  const [galleryState, setGalleryState] = useState({ open: false, caseIndex: -1, initialIndex: 0 });
 
   const handleScrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     formRef.current?.focus();
+  };
+
+  const openGallery = (caseIndex, imageIndex = 0) => {
+    setGalleryState({ open: true, caseIndex, initialIndex: imageIndex });
+  };
+
+  const closeGallery = () => {
+    setGalleryState({ open: false, caseIndex: -1, initialIndex: 0 });
   };
 
   const clientLogos = [
@@ -157,6 +206,45 @@ export default function PortfolioInstitucional() {
     },
   ];
 
+  const fieldActivities = [
+    {
+      title: 'Caldeiraria e Fabricação',
+      description: 'Estruturas, equipamentos, reservatórios, componentes e peças fabricadas sob medida para aplicações industriais.',
+      image: atuacaoCaldeiraria,
+      alt: 'Componentes e estruturas metálicas fabricadas em caldeiraria industrial',
+    },
+    {
+      title: 'Montagem e Manutenção Industrial',
+      description: 'Intervenções programadas e corretivas, desmontagens, reparos, instalações e suporte técnico em campo.',
+      image: atuacaoMontagem,
+      alt: 'Equipe realizando montagem e manutenção de equipamentos industriais',
+    },
+    {
+      title: 'Estruturas Metálicas',
+      description: 'Galpões, coberturas, ampliações, mezaninos, plataformas, passarelas e acessos industriais.',
+      image: atuacaoEstruturasImg,
+      alt: 'Estrutura metálica de galpão industrial em construção e montagem',
+    },
+    {
+      title: 'Transportadores e Movimentação de Materiais',
+      description: 'Transportadores de correia, roscas e equipamentos desenvolvidos para movimentação de produtos e materiais.',
+      image: atuacaoTransportadores,
+      alt: 'Transportador de correia e sistema de movimentação de materiais em operação',
+    },
+    {
+      title: 'Equipamentos Agroindustriais',
+      description: 'Equipamentos de pré-limpeza, mistura, moagem e apoio ao processamento de grãos e produtos.',
+      image: atuacaoEquipamentosAgro,
+      alt: 'Equipamento agroindustrial de pré-limpeza e processamento de grãos',
+    },
+    {
+      title: 'Dutos, Exaustão e Componentes de Processo',
+      description: 'Exaustores, dutos, curvas, bicas, transições e componentes metálicos integrados à operação.',
+      image: atuacaoDutos,
+      alt: 'Sistema de dutos e exaustão integrado à operação industrial',
+    },
+  ];
+
   const cases = [
     {
       title: 'Centro de Triagem de Resíduos Sólidos',
@@ -170,30 +258,102 @@ export default function PortfolioInstitucional() {
       description: 'Recuperação, fabricação e instalação de componentes e estruturas para operação industrial contínua.',
       services: ['Caldeiraria', 'Manutenção', 'Fabricação', 'Instalação'],
       image: caseManutencao,
+      gallery: [
+        { src: caseManutencao, alt: 'Serviço de caldeiraria e montagem industrial em execução', caption: 'Manutenção e recuperação de componentes' },
+        { src: manutencaoImg02, alt: 'Detalhe de soldagem e fabricação em trabalho de caldeiraria', caption: 'Processo de fabricação e soldagem' },
+        { src: manutencaoImg03, alt: 'Equipamento montado após serviço de manutenção industrial', caption: 'Equipamento finalizado' },
+        { src: manutencaoImg04, alt: 'Equipe finalizando montagem de estrutura metálica', caption: 'Conclusão da montagem' },
+      ],
     },
     {
       title: 'Estruturas Metálicas e Instalações',
       description: 'Galpões, coberturas, plataformas e ampliações para diferentes necessidades operacionais.',
       services: ['Galpões', 'Coberturas', 'Plataformas', 'Ampliações'],
       image: caseEstruturasInstalacoes,
+      gallery: [
+        { src: caseEstruturasInstalacoes, alt: 'Estrutura metálica de galpão industrial em fase final de montagem', caption: 'Galpão em construção' },
+        { src: estruturasImg02, alt: 'Detalhe da cobertura metálica instalada no galpão', caption: 'Sistema de cobertura' },
+        { src: estruturasImg03, alt: 'Plataforma industrial montada sobre estrutura principal', caption: 'Plataforma de acesso' },
+        { src: estruturasImg04, alt: 'Estrutura metálica completa com ampliação executada', caption: 'Estrutura finalizada' },
+      ],
     },
     {
       title: 'Fabricação de Equipamentos e Dispositivos',
       description: 'Fabricação de conjuntos metálicos, peças, dispositivos e gabaritos para aplicações industriais.',
       services: ['Fabricação', 'Peças Sob Medida', 'Dispositivos', 'Gabaritos'],
       image: caseFabricacao,
+      gallery: [
+        { src: caseFabricacao, alt: 'Equipamento industrial fabricado sob medida em processo de conclusão', caption: 'Equipamento em produção' },
+        { src: fabricacaoImg02, alt: 'Detalhe de componentes metálicos fabricados e ajustados', caption: 'Componentes fabricados' },
+        { src: fabricacaoImg03, alt: 'Peças sob medida em fase de acabamento e montagem', caption: 'Peças em acabamento' },
+        { src: fabricacaoImg04, alt: 'Equipamento finalizado e testado pronto para entrega', caption: 'Equipamento entregue' },
+      ],
     },
     {
       title: 'Obras Civis e Infraestrutura',
       description: 'Execução de fundações, pisos, contenções, alvenarias e complementos para instalações operacionais.',
       services: ['Fundações', 'Pisos', 'Contenções', 'Infraestrutura'],
       image: caseObrasC,
+      gallery: [
+        { src: caseObrasC, alt: 'Obra civil com estrutura de fundação e infraestrutura em andamento', caption: 'Fundação e infraestrutura' },
+        { src: obrasImg02, alt: 'Piso industrial sendo aplicado sobre fundação preparada', caption: 'Aplicação de pisos' },
+        { src: obrasImg03, alt: 'Sistema de contenção e drenagem implementado na obra', caption: 'Contenção e drenagem' },
+        { src: obrasImg04, alt: 'Obra civil concluída mostrando infraestrutura final', caption: 'Obra finalizada' },
+      ],
     },
     {
       title: 'Projetos de Engenharia e Drenagem',
       description: 'Estudos, levantamentos, projetos executivos e soluções para infraestrutura e adequações técnicas.',
       services: ['Projetos', 'Levantamentos', 'Drenagem', 'Infraestrutura'],
       placeholder: 'Inserir foto de levantamento em campo, projeto técnico, drenagem ou implantação de infraestrutura.',
+    },
+    {
+      title: 'Transportadores e Movimentação de Materiais',
+      description: 'Fabricação e adequação de transportadores de correia, roscas e conjuntos para movimentação contínua de produtos.',
+      services: ['Transportadores', 'Roscas', 'Acionamentos', 'Componentes'],
+      image: caseTransportadores,
+      gallery: [
+        { src: caseTransportadores, alt: 'Transportador de correia instalado e em operação de movimentação de materiais', caption: 'Sistema de transportador' },
+        { src: transportadoresImg02, alt: 'Detalhe do sistema de polia e correia do transportador', caption: 'Sistema de correia' },
+        { src: transportadoresImg03, alt: 'Transportador de rosca para movimentação de grãos ou pó', caption: 'Transportador de rosca' },
+        { src: transportadoresImg04, alt: 'Transportador completo em operação dentro da unidade', caption: 'Sistema em operação' },
+      ],
+    },
+    {
+      title: 'Equipamentos Agroindustriais e Pré-Limpeza',
+      description: 'Fabricação, montagem e adequação de equipamentos destinados à preparação e ao processamento de produtos agroindustriais.',
+      services: ['Pré-Limpeza', 'Mistura', 'Processamento', 'Montagem'],
+      image: caseEquipamentosAgro,
+      gallery: [
+        { src: caseEquipamentosAgro, alt: 'Equipamento agroindustrial de pré-limpeza e processamento montado', caption: 'Equipamento agroindustrial' },
+        { src: agroImg02, alt: 'Detalhe do sistema de peneiramento e limpeza do equipamento', caption: 'Sistema de pré-limpeza' },
+        { src: agroImg03, alt: 'Equipamento de mistura e processamento de produtos agrícolas', caption: 'Sistema de mistura' },
+        { src: agroImg04, alt: 'Equipamento completo integrado à linha de processamento da usina', caption: 'Sistema integrado' },
+      ],
+    },
+    {
+      title: 'Mezaninos, Plataformas e Guarda-Corpos',
+      description: 'Estruturas auxiliares, acessos e proteções coletivas desenvolvidos conforme as condições de uso e operação.',
+      services: ['Mezaninos', 'Plataformas', 'Escadas', 'Guarda-Corpos'],
+      image: caseMezaninos,
+      gallery: [
+        { src: caseMezaninos, alt: 'Mezanino industrial com plataforma e acesso montado dentro da estrutura', caption: 'Mezanino e plataforma' },
+        { src: mezaninosImg02, alt: 'Escada de acesso ao mezanino com guarda-corpo de segurança instalado', caption: 'Acesso e guarda-corpo' },
+        { src: mezaninosImg03, alt: 'Detalhe da estrutura do mezanino com piso e proteção em operação', caption: 'Estrutura e piso' },
+        { src: mezaninosImg04, alt: 'Mezanino completo com os acessos e proteções finalizados', caption: 'Mezanino finalizado' },
+      ],
+    },
+    {
+      title: 'Dutos, Exaustão e Componentes de Processo',
+      description: 'Fabricação e instalação de exaustores, dutos, curvas, bicas e transições para sistemas industriais.',
+      services: ['Exaustão', 'Dutos', 'Curvas', 'Bicas e Transições'],
+      image: caseDutos,
+      gallery: [
+        { src: caseDutos, alt: 'Sistema de dutos e exaustão industrial em fase final de montagem', caption: 'Sistema de exaustão' },
+        { src: dutosImg02, alt: 'Detalhe das curvas e transições de dutos soldadas conforme especificação', caption: 'Curvas e transições' },
+        { src: dutosImg03, alt: 'Exaustor industrial montado na saída do sistema de dutos', caption: 'Exaustor montado' },
+        { src: dutosImg04, alt: 'Sistema completo de dutos e exaustão em operação na unidade', caption: 'Sistema em operação' },
+      ],
     },
   ];
 
@@ -250,9 +410,7 @@ export default function PortfolioInstitucional() {
           </div>
 
           {/* Legenda ilustrativa no canto inferior direito */}
-          <div className="absolute bottom-4 right-6 text-xs text-gray-300 print:hidden">
-            Imagem ilustrativa
-          </div>
+          <div className="absolute bottom-4 right-6 text-xs text-gray-300 print:hidden">Imagem ilustrativa</div>
         </section>
 
         {/* ===== 2. QUEM SOMOS ===== */}
@@ -307,29 +465,15 @@ export default function PortfolioInstitucional() {
             </div>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
-                <PortfolioImage src={atuacaoCaldeiraria} alt="Equipamentos e componentes de caldeiraria e fabricação metálica em processo" className="m-0" />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Caldeiraria e Fabricação</h3>
-                  <p className="text-gray-700 leading-relaxed">Estruturas metálicas, equipamentos, reservatórios e peças sob medida para a operação industrial.</p>
-                </div>
-              </article>
-
-              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
-                <PortfolioImage src={atuacaoMontagem} alt="Equipe realizando montagem e manutenção de equipamentos industriais" className="m-0" />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Montagem e Manutenção Industrial</h3>
-                  <p className="text-gray-700 leading-relaxed">Intervenções programadas, corretivas, desmonte, reparos e suporte técnico em operação.</p>
-                </div>
-              </article>
-
-              <article className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden md:col-span-2 xl:col-span-1">
-                <PortfolioImage src={atuacaoEstruturasImg} alt="Estrutura metálica de galpão industrial em construção" className="m-0" />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">Estruturas Metálicas</h3>
-                  <p className="text-gray-700 leading-relaxed">Galpões, coberturas, ampliações, mezaninos e passarelas executados com foco em produtividade.</p>
-                </div>
-              </article>
+              {fieldActivities.map((activity, idx) => (
+                <article key={idx} className="portfolio-activity-card bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
+                  <PortfolioImage src={activity.image} alt={activity.alt} className="m-0" />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-3">{activity.title}</h3>
+                    <p className="text-gray-700 leading-relaxed">{activity.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -473,11 +617,20 @@ export default function PortfolioInstitucional() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {cases.map((caseItem, idx) => (
                 <article key={idx} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
-                  {caseItem.image ? (
-                    <PortfolioImage src={caseItem.image} alt={`Projeto de ${caseItem.title}`} className="rounded-none" />
-                  ) : (
-                    <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
-                  )}
+                  <div className="portfolio-case-media">
+                    {caseItem.image ? (
+                      <>
+                        <PortfolioImage src={caseItem.image} alt={`Projeto de ${caseItem.title}`} className="rounded-none" />
+                        {caseItem.gallery && (
+                          <button type="button" onClick={() => openGallery(idx)} className="portfolio-gallery-trigger" aria-label={`Abrir galeria de ${caseItem.title}`}>
+                            <span className="portfolio-gallery-trigger-label">Ver fotos</span>
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <ImagePlaceholder title="Image" description={caseItem.placeholder} className="rounded-none" />
+                    )}
+                  </div>
                   <div className="p-8">
                     <h3 className="text-2xl font-bold text-[var(--h2d-blue-dark)] mb-2">{caseItem.title}</h3>
                     {caseItem.location && <p className="text-sm text-[var(--h2d-blue-medium)] font-semibold mb-4">{caseItem.location}</p>}
@@ -498,6 +651,9 @@ export default function PortfolioInstitucional() {
             </div>
           </div>
         </section>
+
+        {/* Galeria Modal */}
+        {galleryState.caseIndex >= 0 && cases[galleryState.caseIndex]?.gallery && <PortfolioGallery open={galleryState.open} onClose={closeGallery} title={cases[galleryState.caseIndex].title} images={cases[galleryState.caseIndex].gallery} initialIndex={galleryState.initialIndex} />}
 
         {/* ===== 10. SEGMENTOS ATENDIDOS ===== */}
         <section id="segmentos" className="py-20 px-4 bg-white print-page-break">
