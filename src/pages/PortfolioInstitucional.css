@@ -8,15 +8,89 @@
 
 .portfolio-page .portfolio-hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5rem 1rem 4.75rem;
+  background-position: center;
 }
 
 .portfolio-page .portfolio-hero-content {
   position: relative;
   z-index: 1;
+  width: 100%;
+}
+
+.portfolio-page .portfolio-hero-brand {
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-page .portfolio-hero-copy {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.portfolio-page .portfolio-hero-eyebrow {
+  width: fit-content;
+  padding: 0.48rem 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 9999px;
+  color: var(--h2d-yellow);
+  background: rgba(0, 27, 54, 0.48);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1;
+}
+
+.portfolio-page .portfolio-hero-title {
+  max-width: 52rem;
+  margin: 0;
+  font-size: clamp(2.6rem, 5.5vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.42);
+}
+
+.portfolio-page .portfolio-hero-lead {
+  max-width: 49rem;
+  color: #ffffff;
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 650;
+  line-height: 1.45;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
+}
+
+.portfolio-page .portfolio-hero-description {
+  max-width: 46rem;
+  color: #e5eef8;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.34);
+}
+
+.portfolio-page .portfolio-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding-top: 0.75rem;
+}
+
+.portfolio-page .portfolio-hero-actions a:hover {
+  text-decoration: none;
+}
+
+.portfolio-page .portfolio-hero-contacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 0.85rem 2rem;
+  margin-top: 2.75rem;
+  font-size: 0.95rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.36);
 }
 
 .portfolio-page .portfolio-hero-disclaimer {
@@ -36,17 +110,6 @@
   line-height: 1;
   white-space: nowrap;
   backdrop-filter: blur(4px);
-}
-
-.portfolio-page .portfolio-hero h1 {
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-.portfolio-page .portfolio-hero h2 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  line-height: 1.3;
 }
 
 .portfolio-page section {
@@ -424,36 +487,22 @@
 
 @media (min-width: 768px) {
   .portfolio-page .portfolio-hero {
-    min-height: 80vh;
-  }
-
-  .portfolio-page .portfolio-hero h1 {
-    font-size: 3rem;
-  }
-
-  .portfolio-page .portfolio-hero h2 {
-    font-size: 1.75rem;
+    min-height: 90vh;
   }
 }
 
 @media (min-width: 1024px) {
   .portfolio-page .portfolio-hero {
-    min-height: 90vh;
-  }
-
-  .portfolio-page .portfolio-hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .portfolio-page .portfolio-hero h2 {
-    font-size: 2rem;
+    min-height: 94vh;
   }
 }
 
 @media (max-width: 767px) {
   .portfolio-page .portfolio-hero {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 5.25rem;
+    background-position: 58% center;
   }
 
   .portfolio-page .portfolio-hero-disclaimer {
@@ -461,12 +510,28 @@
     bottom: 0.75rem;
   }
 
-  .portfolio-page .portfolio-hero h1 {
-    font-size: 2.5rem;
+  .portfolio-page .portfolio-hero-brand {
+    margin-bottom: 2rem;
   }
 
-  .portfolio-page .portfolio-hero h2 {
-    font-size: 1.5rem;
+  .portfolio-page .portfolio-hero-title {
+    font-size: clamp(2.25rem, 11vw, 3rem);
+    line-height: 1.06;
+  }
+
+  .portfolio-page .portfolio-hero-actions {
+    flex-direction: column;
+  }
+
+  .portfolio-page .portfolio-hero-actions > * {
+    width: 100%;
+  }
+
+  .portfolio-page .portfolio-hero-contacts {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+    font-size: 0.9rem;
   }
 
   .portfolio-page h2 {

@@ -1,0 +1,632 @@
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+.portfolio-print-route {
+  min-height: 100vh;
+  padding: 2rem;
+  color: #102a43;
+  background: #e8eef4;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.portfolio-print-tool {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1.25rem;
+  width: min(70rem, 100%);
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 1rem 3rem rgba(15, 41, 66, 0.12);
+}
+
+.portfolio-print-tool h1 {
+  margin: 0.2rem 0 0.4rem;
+  color: #002b55;
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+.portfolio-print-tool p {
+  margin: 0;
+  color: #52677b;
+}
+
+.portfolio-print-tool__eyebrow {
+  color: #9a6b00 !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.portfolio-print-tool__master,
+.portfolio-print-tool__clients label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.portfolio-print-tool__master {
+  font-weight: 700;
+}
+
+.portfolio-print-tool input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #003b73;
+}
+
+.portfolio-print-tool__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.portfolio-print-tool__actions button {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #b7c6d6;
+  border-radius: 0.5rem;
+  color: #003b73;
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.portfolio-print-tool__clients {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+}
+
+.portfolio-print-tool__print {
+  width: fit-content;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  background: #003b73;
+}
+
+.portfolio-document {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.portfolio-pdf-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 1rem 3rem rgba(15, 41, 66, 0.16);
+  break-after: page;
+  page-break-after: always;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.portfolio-pdf-page-content {
+  height: 100%;
+  padding: 12mm 13mm 16mm;
+}
+
+.portfolio-pdf-footer {
+  position: absolute;
+  right: 13mm;
+  bottom: 6mm;
+  left: 13mm;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2mm;
+  border-top: 0.3mm solid #d7e0e8;
+  color: #60758a;
+  font-size: 7.5pt;
+}
+
+.portfolio-pdf-cover .portfolio-pdf-page-content {
+  padding: 0;
+}
+
+.portfolio-pdf-cover__image,
+.portfolio-pdf-cover__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-pdf-cover__image {
+  object-fit: cover;
+}
+
+.portfolio-pdf-cover__overlay {
+  background: linear-gradient(180deg, rgba(0, 24, 48, 0.55), rgba(0, 37, 72, 0.88) 62%, #001b36 100%);
+}
+
+.portfolio-pdf-cover__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 17mm 16mm 15mm;
+  color: #ffffff;
+}
+
+.portfolio-pdf-cover__brand,
+.portfolio-pdf-closing__top {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+  font-size: 15pt;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-pdf-cover__brand img,
+.portfolio-pdf-closing__top img {
+  width: 16mm;
+  height: 16mm;
+  object-fit: contain;
+}
+
+.portfolio-pdf-cover__copy {
+  margin-top: auto;
+  max-width: 164mm;
+}
+
+.portfolio-pdf-cover__copy > span {
+  color: #f4c430;
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.portfolio-pdf-cover__copy h1 {
+  max-width: 155mm;
+  margin: 5mm 0;
+  font-size: 36pt;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+}
+
+.portfolio-pdf-cover__copy p {
+  max-width: 145mm;
+  margin: 0;
+  color: #e4edf6;
+  font-size: 15pt;
+  line-height: 1.45;
+}
+
+.portfolio-pdf-cover__contacts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5mm 8mm;
+  margin-top: 14mm;
+  padding-top: 6mm;
+  border-top: 0.4mm solid rgba(255, 255, 255, 0.35);
+  font-size: 9.5pt;
+}
+
+.portfolio-pdf-cover__contacts p {
+  margin: 0;
+}
+
+.portfolio-pdf-cover__disclaimer {
+  align-self: flex-end;
+  margin-top: 8mm;
+  padding: 2mm 3mm;
+  border: 0.3mm solid rgba(255, 255, 255, 0.45);
+  border-radius: 99mm;
+  background: rgba(0, 27, 54, 0.72);
+  font-size: 7.5pt;
+}
+
+.portfolio-pdf-section-heading span {
+  color: #a87500;
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.portfolio-pdf-section-heading h2 {
+  margin: 2mm 0 2.5mm;
+  color: #002f5d;
+  font-size: 24pt;
+  line-height: 1.1;
+}
+
+.portfolio-pdf-section-heading p,
+.portfolio-pdf-about p {
+  margin: 0 0 2mm;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+.portfolio-pdf-about {
+  margin-top: 6mm;
+  padding: 5mm;
+  border-left: 1.2mm solid #f4c430;
+  background: #f2f6fa;
+}
+
+.portfolio-pdf-subtitle {
+  margin: 7mm 0 3mm;
+  color: #003b73;
+  font-size: 14pt;
+}
+
+.portfolio-pdf-solutions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3mm;
+}
+
+.portfolio-pdf-solutions article {
+  min-height: 25mm;
+  padding: 3.5mm;
+  border: 0.3mm solid #d9e3ec;
+  border-radius: 2mm;
+}
+
+.portfolio-pdf-solutions h4,
+.portfolio-pdf-solutions p,
+.portfolio-pdf-methods p {
+  margin: 0;
+}
+
+.portfolio-pdf-solutions h4 {
+  margin-bottom: 1.5mm;
+  color: #003b73;
+  font-size: 9.5pt;
+}
+
+.portfolio-pdf-solutions p {
+  color: #455d73;
+  font-size: 8pt;
+  line-height: 1.35;
+}
+
+.portfolio-pdf-methods {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2mm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-pdf-methods li {
+  display: grid;
+  gap: 2mm;
+  align-content: start;
+}
+
+.portfolio-pdf-methods li > span {
+  display: grid;
+  place-items: center;
+  width: 8mm;
+  height: 8mm;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #003b73;
+  font-size: 8pt;
+  font-weight: 800;
+}
+
+.portfolio-pdf-methods strong {
+  display: block;
+  color: #003b73;
+  font-size: 8pt;
+  line-height: 1.25;
+}
+
+.portfolio-pdf-methods p {
+  margin-top: 1mm;
+  color: #5b6f82;
+  font-size: 7pt;
+  line-height: 1.3;
+}
+
+.portfolio-pdf-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3mm;
+  height: 235mm;
+  margin-top: 6mm;
+}
+
+.portfolio-pdf-activity-grid article {
+  overflow: hidden;
+  border: 0.3mm solid #d7e1ea;
+  border-radius: 2mm;
+  background: #ffffff;
+  break-inside: avoid;
+}
+
+.portfolio-pdf-activity-grid img {
+  width: 100%;
+  height: 35mm;
+  object-fit: cover;
+}
+
+.portfolio-pdf-activity-grid div {
+  padding: 3mm;
+}
+
+.portfolio-pdf-activity-grid h3 {
+  margin: 0 0 1.5mm;
+  color: #003b73;
+  font-size: 9pt;
+  line-height: 1.25;
+}
+
+.portfolio-pdf-activity-grid p {
+  margin: 0;
+  color: #50677d;
+  font-size: 7pt;
+  line-height: 1.35;
+}
+
+.portfolio-pdf-section-heading--compact h2 {
+  font-size: 19pt;
+}
+
+.portfolio-pdf-case-list {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 5mm;
+  height: 245mm;
+  margin-top: 5mm;
+}
+
+.portfolio-pdf-case {
+  display: grid;
+  grid-template-rows: 54mm 1fr;
+  overflow: hidden;
+  border: 0.35mm solid #d5e0e9;
+  border-top: 1.3mm solid #f4c430;
+  border-radius: 2mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.portfolio-pdf-case__images {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1mm;
+  overflow: hidden;
+  background: #dce6ef;
+}
+
+.portfolio-pdf-case__images--1 {
+  grid-template-columns: 1fr;
+}
+
+.portfolio-pdf-case__images--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.portfolio-pdf-case__images img {
+  width: 100%;
+  height: 54mm;
+  object-fit: cover;
+}
+
+.portfolio-pdf-case__images > span {
+  position: absolute;
+  top: 3mm;
+  left: 3mm;
+  padding: 1.5mm 2.5mm;
+  border-radius: 99mm;
+  color: #ffffff;
+  background: rgba(0, 27, 54, 0.88);
+  font-size: 7pt;
+  font-weight: 700;
+}
+
+.portfolio-pdf-case__copy {
+  display: grid;
+  align-content: start;
+  gap: 2mm;
+  padding: 4mm;
+}
+
+.portfolio-pdf-case__copy h3 {
+  margin: 0;
+  color: #003b73;
+  font-size: 13pt;
+  line-height: 1.2;
+}
+
+.portfolio-pdf-case__copy p {
+  margin: 0;
+  color: #455d73;
+  font-size: 8pt;
+  line-height: 1.4;
+}
+
+.portfolio-pdf-case__location {
+  margin-top: 1mm !important;
+  color: #9a6b00 !important;
+  font-weight: 700;
+}
+
+.portfolio-pdf-case__copy ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5mm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-pdf-case__copy li {
+  padding: 1.2mm 2mm;
+  border-radius: 99mm;
+  color: #003b73;
+  background: #eaf2f8;
+  font-size: 7pt;
+  font-weight: 700;
+}
+
+.portfolio-pdf-closing .portfolio-pdf-page-content {
+  display: flex;
+  flex-direction: column;
+  padding: 15mm 15mm 18mm;
+  color: #ffffff;
+  background: linear-gradient(145deg, #001b36, #00457f);
+}
+
+.portfolio-pdf-closing__top {
+  color: #ffffff;
+}
+
+.portfolio-pdf-clients {
+  margin-top: 18mm;
+  padding: 9mm;
+  border-radius: 3mm;
+  color: #102a43;
+  background: #ffffff;
+}
+
+.portfolio-pdf-clients h2 {
+  margin: 0 0 2mm;
+  color: #003b73;
+  font-size: 20pt;
+}
+
+.portfolio-pdf-clients > p {
+  margin: 0 0 6mm;
+  color: #50677d;
+  font-size: 9pt;
+}
+
+.portfolio-pdf-clients > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+}
+
+.portfolio-pdf-clients article {
+  display: grid;
+  place-items: center;
+  min-height: 28mm;
+  padding: 2mm;
+  border: 0.3mm solid #e0e7ee;
+  border-radius: 2mm;
+}
+
+.portfolio-pdf-clients img {
+  width: 25mm;
+  height: 14mm;
+  object-fit: contain;
+}
+
+.portfolio-pdf-clients span {
+  margin-top: 1mm;
+  color: #536a7f;
+  font-size: 6.8pt;
+  font-weight: 700;
+}
+
+.portfolio-pdf-closing__cta {
+  margin-top: auto;
+  padding-top: 12mm;
+}
+
+.portfolio-pdf-closing__cta > p {
+  margin: 0;
+  color: #f4c430;
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.portfolio-pdf-closing__cta h2 {
+  max-width: 150mm;
+  margin: 3mm 0 8mm;
+  font-size: 26pt;
+  line-height: 1.1;
+}
+
+.portfolio-pdf-closing__cta > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4mm 8mm;
+  padding-top: 6mm;
+  border-top: 0.35mm solid rgba(255, 255, 255, 0.34);
+}
+
+.portfolio-pdf-closing__cta div p {
+  display: grid;
+  gap: 1mm;
+  margin: 0;
+  font-size: 9pt;
+}
+
+.portfolio-pdf-closing__cta div span {
+  color: #dce8f3;
+}
+
+@media (max-width: 900px) {
+  .portfolio-print-route {
+    padding: 1rem;
+  }
+
+  .portfolio-print-tool__clients {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-document {
+    justify-content: start;
+  }
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .portfolio-print-route {
+    min-height: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .portfolio-print-tool {
+    display: none !important;
+  }
+
+  .portfolio-document {
+    display: block;
+    overflow: visible;
+  }
+
+  .portfolio-pdf-page {
+    width: 210mm;
+    height: 297mm;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .portfolio-pdf-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

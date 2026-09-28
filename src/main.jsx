@@ -19,6 +19,7 @@ import ConstrucaoEstruturaMetalica from './pages/ConstrucaoEstruturaMetalica';
 import GalpoesAgro from './pages/GalpoesAgro';
 import GalpoesIndustriais from './pages/GalpoesIndustriais';
 import PortfolioInstitucional from './pages/PortfolioInstitucional';
+import PortfolioPrint from './pages/PortfolioPrint';
 
 // Cria o roteador com as duas rotas
 const router = createBrowserRouter([
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: '/galpoes-agronegocio', element: <GalpoesAgro /> },
       { path: '/galpoes-industriais', element: <GalpoesIndustriais /> },
       { path: '/portfolio', element: <PortfolioInstitucional /> },
+      { path: '/portfolio-pdf', element: <PortfolioPrint /> },
       // GalpoesIndustriais.jsx
       // VOCÊ PODE ADICIONAR QUANTAS QUISER:
       // { path: '/galpoes-agronegocio', element: <PaginaGalpoesAgro /> },

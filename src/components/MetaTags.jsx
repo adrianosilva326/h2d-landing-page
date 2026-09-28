@@ -12,17 +12,20 @@ export function MetaTags({
   title = "Galpões Industriais e Logísticos | H2D Engenharia",
   description = "Projetamos e construímos galpões industriais, comerciais e logísticos em estrutura metálica e pré-moldado. Soluções completas, do projeto à entrega. Fale com nossos engenheiros e peça um orçamento.",
   imageUrl = OG_IMAGE_URL,
-  canonicalPath = "/" // <-- NOVO: Adicione um caminho padrão
+  canonicalPath = "/", // <-- NOVO: Adicione um caminho padrão
+  robots,
 }) {
 
   // Constrói a URL canônica completa dinamicamente
   const canonicalUrl = `${BASE_URL}${canonicalPath === "/" ? "" : canonicalPath}`; // Garante que a home não tenha barra dupla
+  const absoluteImageUrl = new URL(imageUrl || OG_IMAGE_URL, BASE_URL).href;
 
   return (
     <Helmet>
       {/* --- Tags Padrão de SEO --- */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {robots && <meta name="robots" content={robots} />}
       {/* --- CORRIGIDO: URL Canônica dinâmica --- */}
       <link rel="canonical" href={canonicalUrl} />
 
@@ -31,7 +34,7 @@ export function MetaTags({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="H2D Engenharia" />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image" content={absoluteImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:type" content="website" />
@@ -41,8 +44,7 @@ export function MetaTags({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
-      <meta name="twitter:site" content="@seu_twitter_se_tiver" /> {/* Opcional */}
+      <meta name="twitter:image" content={absoluteImageUrl} />
     </Helmet>
   );
 }

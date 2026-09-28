@@ -21,9 +21,22 @@ const services = [
   { id: 'reforma', label: 'Reforma ou Ampliação' },
 ];
 
-export const ContactForm = forwardRef((props, ref) => {
+const portfolioServices = [
+  { id: 'engenharia_projetos', label: 'Engenharia e Projetos' },
+  { id: 'caldeiraria_fabricacao', label: 'Caldeiraria e Fabricação' },
+  { id: 'montagem_manutencao', label: 'Montagem e Manutenção' },
+  { id: 'estruturas_galpoes_coberturas', label: 'Estruturas, Galpões e Coberturas' },
+  { id: 'transportadores', label: 'Transportadores' },
+  { id: 'equipamentos_agroindustriais', label: 'Equipamentos Agroindustriais' },
+  { id: 'obras_civis_infraestrutura', label: 'Obras Civis e Infraestrutura' },
+  { id: 'outro', label: 'Outro' },
+];
+
+export const ContactForm = forwardRef(({ variant = 'default' }, ref) => {
   const navigate = useNavigate(); // Inicializa o hook
   const location = useLocation(); // <-- NOVO: Pega a localização atual
+  const isPortfolio = variant === 'portfolio';
+  const availableServices = isPortfolio ? portfolioServices : services;
 
   // --- Refs para a Melhoria de Foco ---
   const internalCardRef = useRef(null); // Ref para o Card (para scrollIntoView)
@@ -100,8 +113,17 @@ export const ContactForm = forwardRef((props, ref) => {
     // --- Fim da Lógica da Origem ---
 
     // Formata os dados para o envio
-    const servicosSelecionados = formData.servicosInteresse.join(', ');
-    const corpoEmail = `
+    const servicosSelecionados = isPortfolio
+      ? availableServices.filter((service) => formData.servicosInteresse.includes(service.id)).map((service) => service.label).join(', ')
+      : formData.servicosInteresse.join(', ');
+    const corpoEmail = isPortfolio
+      ? `
+      Necessidade: ${servicosSelecionados || 'Nenhuma opção selecionada'}
+      ---
+      Descrição da necessidade:
+      ${formData.mensagem}
+    `
+      : `
       Tamanho do Projeto: ${formData.tamanhoProjeto || 'Não informado'}
       Serviços de Interesse: ${servicosSelecionados || 'Nenhum selecionado'}
       ---
@@ -173,22 +195,23 @@ export const ContactForm = forwardRef((props, ref) => {
               <Input name="empresa" placeholder="Sua empresa (opcional)" value={formData.empresa} onChange={handleChange} className={inputClasses} />
             </div>
   
-            {/* Qual o tamanho do seu projeto? - Radio Group */}
-            <div className="space-y-3">
-              <Label className="font-semibold text-gray-800">Qual o tamanho estimado do seu galpão?</Label>
-              <RadioGroup onValueChange={handleRadioChange} className="grid grid-cols-2 gap-4">
-                <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="ate_500m2" />Até 500m²</Label></div>
-                <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="501_a_2000m2" />501 a 2.000m²</Label></div>
-                <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="acima_de_2000m2" />Acima de 2.000m²</Label></div>
-                <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="nao_sei" />Ainda não sei</Label></div>
-              </RadioGroup>
-            </div>
+            {!isPortfolio && (
+              <div className="space-y-3">
+                <Label className="font-semibold text-gray-800">Qual o tamanho estimado do seu galpão?</Label>
+                <RadioGroup onValueChange={handleRadioChange} className="grid grid-cols-2 gap-4">
+                  <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="ate_500m2" />Até 500m²</Label></div>
+                  <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="501_a_2000m2" />501 a 2.000m²</Label></div>
+                  <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="acima_de_2000m2" />Acima de 2.000m²</Label></div>
+                  <div><Label className="flex items-center gap-2 font-normal cursor-pointer p-3 border rounded-md bg-white has-[:checked]:bg-yellow-100 has-[:checked]:border-yellow-400"><RadioGroupItem value="nao_sei" />Ainda não sei</Label></div>
+                </RadioGroup>
+              </div>
+            )}
   
             {/* Serviços de Interesse - Checkboxes */}
             <div className="space-y-3">
-              <Label className="font-semibold text-gray-800">Quais serviços te interessam?</Label>
+              <Label className="font-semibold text-gray-800">{isPortfolio ? 'Qual é a sua necessidade?' : 'Quais serviços te interessam?'}</Label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {services.map((service) => (
+                {availableServices.map((service) => (
                   <div key={service.id} className="flex items-center space-x-2">
                     <Checkbox className={"bg-white"} id={service.id} onCheckedChange={() => handleCheckboxChange(service.id)} />
                     <Label htmlFor={service.id} className="font-normal cursor-pointer">{service.label}</Label>
@@ -198,7 +221,13 @@ export const ContactForm = forwardRef((props, ref) => {
             </div>
             
             {/* Mensagem Opcional */}
-            <Textarea name="mensagem" placeholder="Se preferir, deixe mais detalhes sobre o projeto aqui..." value={formData.mensagem} onChange={handleChange} className={`${inputClasses} h-12`} />
+            <Textarea
+              name="mensagem"
+              placeholder={isPortfolio ? 'Descreva brevemente sua necessidade, equipamento, estrutura ou serviço.' : 'Se preferir, deixe mais detalhes sobre o projeto aqui...'}
+              value={formData.mensagem}
+              onChange={handleChange}
+              className={`${inputClasses} h-12`}
+            />
   
             <Button type="submit" disabled={isSubmitting} className="w-full bg-[var(--h2d-blue-dark)] hover:bg-[var(--h2d-blue-medium)] text-white font-semibold py-3 text-lg cursor-pointer">
               {isSubmitting ? 'ENVIANDO...' : 'FALAR COM UM ESPECIALISTA'}
