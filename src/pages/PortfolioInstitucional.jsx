@@ -347,7 +347,7 @@ export default function PortfolioInstitucional() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {cases.map((caseItem, idx) => (
-                <article key={caseItem.title} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
+                <article id={`case-${caseItem.slug}`} key={caseItem.slug} className="portfolio-case-card bg-white rounded-xl shadow-md overflow-hidden border-t-4 border-[var(--h2d-yellow)]">
                   <div className="portfolio-case-media">
                     {caseItem.image ? (
                       <>
@@ -474,7 +474,7 @@ export default function PortfolioInstitucional() {
 
         {/* ===== FORMULÁRIO FLUTUANTE ===== */}
         <section id="formulario" className="py-20 px-4 bg-white print-page-break">
-          <div className="max-w-2xl mx-auto space-y-8">
+          <div className="max-w-6xl mx-auto space-y-8">
             <div className="space-y-4 text-center">
               <h2 className="text-4xl font-bold text-[var(--h2d-blue-dark)]">Entre em Contato</h2>
               <p className="text-lg text-gray-700">Nos envie uma mensagem que logo retornaremos com uma solução para sua demanda.</p>

@@ -172,14 +172,14 @@ export const ContactForm = forwardRef(({ variant = 'default' }, ref) => {
 
     return (
       // Aplicamos o 'internalCardRef' aqui para o scroll
-      <Card ref={internalCardRef} className="w-full max-w-lg bg-white/95 backdrop-blur-sm border-gray-200 shadow-2xl">
-        <CardHeader className="text-center p-4">
+      <Card ref={internalCardRef} className={`w-full ${isPortfolio ? 'max-w-6xl' : 'max-w-lg'} bg-white/95 backdrop-blur-sm border-gray-200 shadow-2xl`}>
+        <CardHeader className={isPortfolio ? 'p-4 text-center md:p-6 md:text-left' : 'text-center p-4'}>
           <CardTitle className="text-2xl lg:text-3xl font-bold text-[var(--h2d-blue-dark)]">Fale com um Engenheiro</CardTitle>
           <CardDescription className="text-gray-600">Preencha abaixo e receba um orçamento sem compromisso.</CardDescription>
         </CardHeader>
-        <CardContent className="p-4">
+        <CardContent className={isPortfolio ? 'p-4 md:p-6' : 'p-4'}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-4">
+            <div className={isPortfolio ? 'grid grid-cols-1 gap-4 md:grid-cols-2' : 'space-y-4'}>
               {/* Aplicamos o 'firstInputRef' aqui para o foco */}
               <Input ref={firstInputRef} name="nome" placeholder="Nome completo" value={formData.nome} onChange={handleChange} required className={inputClasses} />
               <Input name="email" type="email" placeholder="E-mail profissional" value={formData.email} onChange={handleChange} required className={inputClasses} />
@@ -210,10 +210,10 @@ export const ContactForm = forwardRef(({ variant = 'default' }, ref) => {
             {/* Serviços de Interesse - Checkboxes */}
             <div className="space-y-3">
               <Label className="font-semibold text-gray-800">{isPortfolio ? 'Qual é a sua necessidade?' : 'Quais serviços te interessam?'}</Label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className={isPortfolio ? 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4' : 'grid grid-cols-1 sm:grid-cols-2 gap-4'}>
                 {availableServices.map((service) => (
                   <div key={service.id} className="flex items-center space-x-2">
-                    <Checkbox className={"bg-white"} id={service.id} onCheckedChange={() => handleCheckboxChange(service.id)} />
+                    <Checkbox className={isPortfolio ? 'border-2 border-slate-500 bg-white data-[state=checked]:border-[var(--h2d-blue-dark)]' : 'bg-white'} id={service.id} onCheckedChange={() => handleCheckboxChange(service.id)} />
                     <Label htmlFor={service.id} className="font-normal cursor-pointer">{service.label}</Label>
                   </div>
                 ))}
@@ -229,7 +229,7 @@ export const ContactForm = forwardRef(({ variant = 'default' }, ref) => {
               className={`${inputClasses} h-12`}
             />
   
-            <Button type="submit" disabled={isSubmitting} className="w-full bg-[var(--h2d-blue-dark)] hover:bg-[var(--h2d-blue-medium)] text-white font-semibold py-3 text-lg cursor-pointer">
+            <Button type="submit" disabled={isSubmitting} className={`${isPortfolio ? 'w-full sm:ml-auto sm:block sm:w-auto sm:min-w-72' : 'w-full'} bg-[var(--h2d-blue-dark)] hover:bg-[var(--h2d-blue-medium)] text-white font-semibold py-3 text-lg cursor-pointer`}>
               {isSubmitting ? 'ENVIANDO...' : 'FALAR COM UM ESPECIALISTA'}
             </Button>
   

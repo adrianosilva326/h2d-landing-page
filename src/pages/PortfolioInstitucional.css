@@ -244,6 +244,10 @@
   page-break-inside: avoid;
 }
 
+.portfolio-page .portfolio-case-card {
+  scroll-margin-top: 6rem;
+}
+
 .portfolio-page .portfolio-case-media {
   position: relative;
 }

@@ -5,9 +5,10 @@ import {
   cases,
   clientLogos,
   fieldActivities,
-  heroBackground,
+  heroPrintImage,
   logoH2D,
   portfolioContacts,
+  segments,
   solutions,
   workMethods,
 } from '../data/portfolioData';
@@ -17,8 +18,8 @@ const chunk = (items, size) => Array.from({ length: Math.ceil(items.length / siz
 
 const getCaseImages = (caseItem) => {
   const candidates = [
-    caseItem.image && { src: caseItem.image, alt: caseItem.alt || caseItem.title },
-    ...(caseItem.gallery || []),
+    caseItem.printImage && { src: caseItem.printImage, alt: caseItem.alt || caseItem.title },
+    ...(caseItem.gallery || []).map((image) => ({ ...image, src: image.printSrc })),
   ].filter(Boolean);
   const seen = new Set();
 
@@ -26,8 +27,15 @@ const getCaseImages = (caseItem) => {
     if (seen.has(image.src)) return false;
     seen.add(image.src);
     return true;
-  }).slice(0, 3);
+  }).slice(0, 5);
 };
+
+const getCaseImageTotal = (caseItem) => new Set([
+  caseItem.image,
+  ...(caseItem.gallery || []).map((image) => image.src),
+].filter(Boolean)).size;
+
+const getOnlineCaseUrl = (caseItem) => `https://h2dengenharia.com.br/portfolio#case-${caseItem.slug}`;
 
 function PageFooter({ pageNumber }) {
   return (
@@ -125,7 +133,7 @@ export default function PortfolioPrint() {
 
         <div className="portfolio-document">
           <PortfolioPdfPage className="portfolio-pdf-cover" pageNumber={1} cover>
-            <img src={heroBackground} alt="Estrutura industrial utilizada como imagem ilustrativa da capa." className="portfolio-pdf-cover__image" />
+            <img src={heroPrintImage} alt="Estrutura industrial utilizada como imagem ilustrativa da capa." className="portfolio-pdf-cover__image" />
             <div className="portfolio-pdf-cover__overlay" />
             <div className="portfolio-pdf-cover__body">
               <div className="portfolio-pdf-cover__brand">
@@ -174,6 +182,10 @@ export default function PortfolioPrint() {
                 </li>
               ))}
             </ol>
+            <h3 className="portfolio-pdf-subtitle portfolio-pdf-subtitle--segments">Segmentos atendidos</h3>
+            <div className="portfolio-pdf-segments">
+              {segments.map((segment) => <span key={segment}>{segment}</span>)}
+            </div>
           </PortfolioPdfPage>
 
           <PortfolioPdfPage pageNumber={3} className="portfolio-pdf-activities">
@@ -185,24 +197,28 @@ export default function PortfolioPrint() {
             <div className="portfolio-pdf-activity-grid">
               {fieldActivities.map((activity) => (
                 <article key={activity.title}>
-                  <img src={activity.image} alt={activity.alt} />
+                  <img src={activity.printImage} alt={activity.alt} />
                   <div><h3>{activity.title}</h3><p>{activity.description}</p></div>
                 </article>
               ))}
             </div>
           </PortfolioPdfPage>
 
-          {casePages.map((pageCases, pageIndex) => (
-            <PortfolioPdfPage key={pageCases[0].title} pageNumber={pageIndex + 4} className="portfolio-pdf-cases">
+          {casePages.map((pageCases, pageIndex) => {
+            const isSingleCasePage = pageCases.length === 1;
+
+            return (
+            <PortfolioPdfPage key={pageCases[0].slug} pageNumber={pageIndex + 4} className={`portfolio-pdf-cases ${isSingleCasePage ? 'portfolio-pdf-cases--single' : ''}`}>
               <header className="portfolio-pdf-section-heading portfolio-pdf-section-heading--compact">
                 <span>PORTFÓLIO TÉCNICO</span>
                 <h2>Soluções e experiências técnicas</h2>
               </header>
-              <div className="portfolio-pdf-case-list">
+              <div className={`portfolio-pdf-case-list ${isSingleCasePage ? 'portfolio-pdf-case-list--single' : ''}`}>
                 {pageCases.map((caseItem) => {
                   const images = getCaseImages(caseItem);
+                  const totalImages = getCaseImageTotal(caseItem);
                   return (
-                    <article key={caseItem.title} className="portfolio-pdf-case">
+                    <article key={caseItem.slug} className="portfolio-pdf-case">
                       <div className={`portfolio-pdf-case__images portfolio-pdf-case__images--${images.length}`}>
                         {images.map((image) => <img key={image.src} src={image.src} alt={image.alt} />)}
                         {caseItem.illustrative && <span>Imagem ilustrativa</span>}
@@ -214,13 +230,27 @@ export default function PortfolioPrint() {
                         </div>
                         <p>{caseItem.description}</p>
                         <ul>{caseItem.services.map((service) => <li key={service}>{service}</li>)}</ul>
+                        {totalImages > 1 && (
+                          <p className="portfolio-pdf-case__gallery-link">
+                            {images.length} de {totalImages} imagens apresentadas • <a href={getOnlineCaseUrl(caseItem)}>Veja a galeria completa on-line</a>
+                          </p>
+                        )}
                       </div>
                     </article>
                   );
                 })}
               </div>
+              {isSingleCasePage && (
+                <aside className="portfolio-pdf-online-cta">
+                  <span>CONTEÚDO COMPLETO ON-LINE</span>
+                  <h3>Conheça mais soluções, registros de campo e detalhes dos projetos.</h3>
+                  <p>Acesse o portfólio digital da H2D Engenharia e navegue pelas galerias completas.</p>
+                  <a href="https://h2dengenharia.com.br/portfolio">ACESSAR PORTFÓLIO ON-LINE</a>
+                </aside>
+              )}
             </PortfolioPdfPage>
-          ))}
+            );
+          })}
 
           <PortfolioPdfPage pageNumber={finalPageNumber} className="portfolio-pdf-closing">
             <div className="portfolio-pdf-closing__top">
